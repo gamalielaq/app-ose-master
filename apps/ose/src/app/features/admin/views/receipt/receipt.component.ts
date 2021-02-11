@@ -35,6 +35,7 @@ export class ReceiptComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    
     this.msgs.push({severity: 'warn', summary: 'IMPORTANTE', detail: 'No existen registros'});
 
     this.month = this._receiptService.getMonths();
