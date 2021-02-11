@@ -20,6 +20,8 @@ token: string;
     //return this.http.post<{ token: string }>(`${environment.api}/auth/sign-in`, body);
     return this.http.post<{ jwtToken: string }>(`${environment.api}/api/Accounts/authenticate`, body).pipe(
       map( resp => {
+        console.log(resp);
+        
         this.SaveJwtToken(resp.jwtToken);
         return resp;
       })
