@@ -1,21 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Months, Period, Year, Filter } from '../../../../core/models/receipt';
 
-interface Months {
-  name: string;
-  code: string;
-}
-interface Period {
-  name: string;
-  code: string;
-}
-interface Year {
-  name: string;
-  code: string;
-}
-interface Filter{
-  name: string;
-  code: string;
-}
 
 @Component({
   selector: 'app-receipt',

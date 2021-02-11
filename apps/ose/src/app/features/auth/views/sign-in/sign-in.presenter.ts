@@ -23,8 +23,6 @@ export class SignInPresenter {
     .pipe(finalize(() => loading.close()))
     .subscribe(
       res => {
-        console.log("sei nel login");
-        console.log(res);
         this.session.create(res.jwtToken);
         this.router.navigateByUrl(this.session.user.startUrl);
       }
