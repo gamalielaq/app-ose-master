@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { UserTable } from './../models/user-table';
 import { LocalTable } from './../models/local-table';
 import { ApiTable } from './../models/api-table';
+import { User } from '@ose/commons/models';
 
 @Injectable({
   providedIn: 'root'
@@ -18,13 +19,13 @@ export class UserService {
     }
   ];
 
-  userTables: UserTable[] = [
-    {email: 'vbarrantes@consoricodhmont.com', name: 'Victor Barrantes', phone: '940373201', admin: 'pi pi-times',
-            active: 'pi pi-check', local: 'LOCAL PRINCIPAL'},
-    {email: 'vitariomeza86@gmail.com', name: 'ELIZABETH HURTADO', phone: '941493377', admin: 'pi pi-check',
-            active: 'pi pi-check', local: 'LOCAL PRINCIPAL'},
-  ];
-  user: any;
+
+getUserAll() {
+  return userTables;
+}
+
+ 
+  user: UserTable[];
 
   localTables: LocalTable[] = [
     {
@@ -69,8 +70,25 @@ export class UserService {
 
   constructor() { }
 
-  getUserByPhone(phone): void {
-    this.user = this.userTables.filter(x => x.phone === phone);
+  getUserByPhone(phone):any  {
+    this.user = userTables.filter(x => x.phone === phone);
   }
 
 }
+
+const userTables: UserTable[] = [
+  {
+    email: 'vbarrantes@consoricodhmont.com',
+    name: 'Victor Barrantes',
+    phone: '940373201',
+    admin: 'pi pi-times',
+    active: 'pi pi-check',
+    local: 'LOCAL PRINCIPAL'},
+  {
+    email: 'vitariomeza86@gmail.com',
+    name: 'ELIZABETH HURTADO',
+    phone: '941493377',
+    admin: 'pi pi-check',
+    active: 'pi pi-check',
+    local: 'LOCAL PRINCIPAL'},
+];

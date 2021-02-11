@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminPresenter } from './admin.presenter';
@@ -12,12 +13,17 @@ export class AdminComponent {
 
   constructor(
     public presenter: AdminPresenter,
-    private router: Router
+    private router: Router,
+    private location: Location
     ) { }
     
   logout() {
     this.presenter.closeSession();
     this.router.navigateByUrl('/autenticacion/ingresar');
+  }
+
+  back() {
+    this.location.back();
   }
 
 }

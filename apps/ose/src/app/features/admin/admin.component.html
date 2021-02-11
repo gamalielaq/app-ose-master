@@ -13,10 +13,16 @@
           <span>Administrador</span>
         </div>
 
-        <button (click)="logout()" mat-button>
-          <mat-icon>exit_to_app</mat-icon>
-          <span>Cerrar Sesión</span>
-        </button>
+        <div>
+          <button (click)="back()"  mat-button>
+            <span> - Regresar</span>
+          </button>
+  
+          <button (click)="logout()" mat-button>
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Cerrar Sesión</span>
+          </button>
+        </div>
 
       </mat-toolbar-row>
     </mat-toolbar>
