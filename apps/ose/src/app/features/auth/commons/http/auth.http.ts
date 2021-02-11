@@ -18,6 +18,10 @@ token: string;
 
   signIn(body: SignInCredentials): Observable<{ jwtToken: string }> {
     //return this.http.post<{ token: string }>(`${environment.api}/auth/sign-in`, body);
+    
+    console.log("body");
+    console.log(body);
+    
     return this.http.post<{ jwtToken: string }>(`${environment.api}/api/Accounts/authenticate`, body).pipe(
       map( resp => {
         console.log(resp);

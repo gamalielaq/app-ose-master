@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Months, Period, Year, Filter } from '../../../../core/models/receipt';
+import { ReceiptService } from '../../../../core/service/receipt.service';
 
 
 @Component({
@@ -29,40 +30,21 @@ export class ReceiptComponent implements OnInit {
   selectedFilterThree: Filter;
   selectedFilterFour: Filter;
 
-  constructor() { }
+  constructor(
+    private _receiptService: ReceiptService
+  ) { }
 
   ngOnInit() {
     this.msgs.push({severity: 'warn', summary: 'IMPORTANTE', detail: 'No existen registros'});
 
-    this.month = [
-      {name: '1', code: 'Jan'},
-      {name: '2', code: 'Feb'},
-      {name: '3', code: 'Mar'},
-      {name: '4', code: 'Apr'},
-      {name: '5', code: 'May'},
-      {name: '6', code: 'Jun'},
-      {name: '7', code: 'Jul'},
-      {name: '8', code: 'Aug'},
-      {name: '9', code: 'Sep'},
-      {name: '10', code: 'Oct'},
-      {name: '11', code: 'Nov'},
-      {name: '12', code: 'Dec'},
-    ];
-    this.period = [
-      { name: 'enero', code: 'from' },
-      { name: 'diciemb', code: 'to' }
-    ];
-    this.year = [
-      { name: '2020', code: '2020' },
-      { name: '2021', code: '2021' },
-      { name: '2022', code: '2022' }
-    ];
-    this.filter = [
-      { name: 'Filtrar por tipo', code: '01' },
-      { name: 'Buscar por entidad', code: '02' },
-      { name: 'Buscar documento por serie / numero', code: '03' },
-      { name: 'Filtrar por estado de anulacion', code: '04' },
-    ];
+    this.month = this._receiptService.getMonths();
+
+    this.year = this._receiptService.getYear();
+
+    this.filter = this._receiptService.getFilter();
+
+    this.period = this._receiptService.getPeriod();
+
   }
 
 }
