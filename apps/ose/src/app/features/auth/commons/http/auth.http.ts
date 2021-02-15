@@ -24,6 +24,7 @@ token: string;
     
     return this.http.post<{ jwtToken: string }>(`${environment.api}/api/Accounts/authenticate`, body).pipe(
       map( resp => {
+        console.log("sei qui resp");
         console.log(resp);
         
         this.SaveJwtToken(resp.jwtToken);

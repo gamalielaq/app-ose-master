@@ -15,7 +15,9 @@
           </button>  
 
           <button *ngIf="session.isAuthenticated" mat-button
-                  [matMenuTriggerFor]="userMenu">{{ session.user.names }}</button>
+                  [matMenuTriggerFor]="userMenu">
+                  <!-- {{ session.user.names }} -->
+                </button>
           <mat-menu #userMenu="matMenu">
               <button mat-menu-item (click)="session.destroy()">{{ 'PORTAL.LOGOUT' | translate }}</button>
           </mat-menu>

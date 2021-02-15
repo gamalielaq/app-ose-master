@@ -23,6 +23,9 @@ export class SignInPresenter {
     .pipe(finalize(() => loading.close()))
     .subscribe(
       res => {
+        console.log("roken");
+        console.log(res.jwtToken);
+        
         this.session.create(res.jwtToken);
         this.router.navigateByUrl(this.session.user.startUrl);
       }

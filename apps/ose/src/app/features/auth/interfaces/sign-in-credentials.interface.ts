@@ -1,4 +1,9 @@
 export interface SignInCredentials {
-  email: string;
-  password: string;
+  // ruc:   string
+  // email: string;
+  // password: string;
+
+  UsuarioRuc:      string;
+  UsuarioNickname: string;
+  UsuarioPassword: string;
 }

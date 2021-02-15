@@ -32,8 +32,9 @@ export class SignInFormComponent implements OnInit {
     private primengConfig: PrimeNGConfig
   ) {
     this.signInForm = this.fb.group({
-      email: ['josuebejarano@outlook.com', [Validators.required, OseValidators.email]],
-      password: ['jbejarano2020', Validators.required]
+      UsuarioRuc: ['20502574109', [Validators.required]],
+      UsuarioNickname: ['FVELITA', [Validators.required]],
+      UsuarioPassword: ['FVELITA', Validators.required]
     });
   }
 

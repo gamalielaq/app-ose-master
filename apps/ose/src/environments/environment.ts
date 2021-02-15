@@ -4,7 +4,11 @@
 
 export const environment = {
   production: false,
-  api: 'https://proyectosbandtel.ddns.net/Api'
+  // api: 'https://proyectosbandtel.ddns.net/Api'
+
+  api: 'http://proyectosbandtel.ddns.net:5000'
+
+  
 };
 
 /*

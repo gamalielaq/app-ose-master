@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: 'administrador',
     canActivate: [OseAuthenticatedGuard, OseRolesGuard],
-    data: { roles: [ UserRol.admin, UserRol.intructor ] },
+    data: { roles: [ UserRol.admin, UserRol.admin ] },
     loadChildren: () => import('./features/admin/admin.module').then(m => m.AdminModule)
   },
   {

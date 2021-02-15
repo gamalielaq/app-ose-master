@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 @Injectable()
 export class AdminPresenter {
   private allMenuOpts: MenuOption[] =  [
-    { title: 'Talleres', icon: 'bookmark', url: '/administrador/talleres', roles: [ UserRol.admin, UserRol.intructor ] },
+    { title: 'Talleres', icon: 'bookmark', url: '/administrador/talleres', roles: [ UserRol.admin, UserRol.admin ] },
     { title: 'Instructores', icon: 'bookmark', url: '/administrador/instructores', roles: [ UserRol.admin ] },
   ];
 
@@ -16,7 +16,7 @@ export class AdminPresenter {
   }
 
   get menuOpts(): MenuOption[] {
-    return this.allMenuOpts.filter(option => option.roles.includes(this.session.user.rol));
+    return this.allMenuOpts.filter(option => option.roles.includes(this.session.user.perfil_id));
   }
 
   constructor(
