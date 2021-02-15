@@ -17,7 +17,7 @@ export class OseRolesGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean | UrlTree {
     const roles = next.data.roles;
-    const rol = this.session.user.rol;
+    const rol = this.session.user.perfil_id;
 
     return roles.includes(rol) || this.router.parseUrl(this.session.user.startUrl);
   }

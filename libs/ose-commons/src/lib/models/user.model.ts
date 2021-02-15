@@ -7,36 +7,40 @@ export interface IUser {
 }
 
 export enum UserRol {
-  student = 'STUDENT',
-  intructor = 'INSTRUCTOR',
-  admin = 'ADMIN'
+  consultant = '2',
+  admin = '1',
+  
 }
 
 const urlStart: Map<UserRol, string> = new Map([
-  [ UserRol.student, '/' ],
-  [ UserRol.intructor, '/administrador' ],
-  [ UserRol.admin, '/administrador' ],
+  [ UserRol.consultant, '/' ],
+  [ UserRol.consultant, '/administrador' ],
+  [ UserRol.admin, '/administrador' ]
 ]);
 
 export class User {
-  email: string;
-  names: string;
-  lastNames: string;
-  rol: UserRol;
 
-  constructor(data: IUser) {
-    this.email = data ? data.email : '';
-    this.names = data ? data.names : '';
-    this.lastNames = data ? data.lastNames : '';
-    this.rol = data ? data.rol as UserRol : null;
+  usuario_id:     string;
+  usuario_correo: string;
+  usuario_nombre: string;
+  perfil_id:      UserRol;
+  nbf:            number;
+  exp:            number;
+  iat:            number;
+
+  constructor( data)  {
+
+    this.perfil_id = data ? data.perfil_id as UserRol : null;
+
+    this.usuario_nombre = data.usuario_nombre;
   }
 
   get fullName() {
-    return `${this.names} ${this.lastNames}`;
+    return `${this.usuario_nombre}`;
   }
 
   get startUrl() {
-    return urlStart.get(this.rol);
+    return urlStart.get(this.perfil_id);
   }
 
 }
