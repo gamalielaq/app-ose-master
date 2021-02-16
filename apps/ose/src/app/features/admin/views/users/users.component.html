@@ -1,12 +1,45 @@
 <div class="ui-fluid text-center">
   <div class="p-field">
-    <h1>Usuario</h1>
+    <h1>Usuarios</h1>
     <p-messages [(value)]="msgs"></p-messages>
-    <button pButton type="submit" id="user-btn" label="Nuevo usuario"></button>
-    <p-table [value]="userService.getUserAll()">
+
+    <button pButton type="submit" id="user-btn" label="Nuevo usuario" 
+    ></button>
+  
+    <p-table [value]="users">
       <ng-template pTemplate="header">
           <tr>
-              <th style="width: 300px;">EMAIL</th>
+              <th>Email</th>
+              <th>Nombre</th>
+              <th>Telefono</th>
+              <th>Actions</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-user>
+          <tr>
+              <td>{{user.usuariO_CORREO}}</td>
+              <td>{{user.usuariO_NICKNAME}}</td>
+              <td>{{user.usuariO_TELEFONO}}</td>
+              <td>
+                <button
+                pButton type="button" 
+                class="p-button-raised p-button-rounded p-button-outlined p-button-info p-mr-2" icon="pi pi-pencil">
+              </button>
+              
+              <button 
+              
+              pButton type="button" 
+              class="p-button-raised p-button-rounded p-button-outlined p-button-danger" icon="pi pi-trash"></button>
+
+              </td>
+          </tr>
+      </ng-template>
+  </p-table>
+  
+    <!-- <p-table [value]="users">
+      <ng-template pTemplate="header">
+          <tr>
+              <th>EMAIL</th>
               <th>NOMBRE COMPLETO</th>
               <th>TELEFONO</th>
               <th>ADMINISTRADOR?</th>
@@ -17,9 +50,9 @@
       </ng-template>
       <ng-template pTemplate="body" let-user>
           <tr>
-              <td>{{user.email}}</td>
-              <td>{{user.name}}</td>
-              <td>{{user.phone}}</td>
+              <td>{{user.usuariO_CORREO}}</td>
+              <td>{{user.usuariO_NICKNAME}}</td>
+              <td>{{user.usuariO_TELEFONO}}</td>
               <td>
                 <i [class]="user.admin"></i>
               </td>
@@ -32,6 +65,6 @@
               </td>
           </tr>
       </ng-template>
-    </p-table>
+    </p-table> -->
   </div>
 </div>

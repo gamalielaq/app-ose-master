@@ -1,14 +1,22 @@
 import { Injectable } from '@angular/core';
 
-import { UserTable } from './../models/user-table';
+import { User } from './../models/user-table';
 import { LocalTable } from './../models/local-table';
 import { ApiTable } from './../models/api-table';
-import { User } from '@ose/commons/models';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'apps/ose/src/environments/environment';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+// import { User } from '@ose/commons/models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  users: User;
+  constructor(
+    private _http: HttpClient
+  ) { }
 
   apiTables: ApiTable[] = [
     {
@@ -20,12 +28,21 @@ export class UserService {
   ];
 
 
-getUserAll() {
-  return userTables;
-}
+
+  getUserAll(): Observable<User> {
+
+    return this._http.get<User>(`${environment.api}/api/Accounts/`).pipe( res=> res);
+    
+  }
+
+
+
+// getUserAll() {
+//   return userTables;
+// }
 
  
-  user: UserTable[];
+  
 
   localTables: LocalTable[] = [
     {
@@ -68,27 +85,27 @@ getUserAll() {
     }
   ];
 
-  constructor() { }
+ 
 
-  getUserByPhone(phone):any  {
-    this.user = userTables.filter(x => x.phone === phone);
-  }
+  // getUserByPhone(phone):any  {
+  //   this.user = userTables.filter(x => x.phone === phone);
+  // }
 
 }
 
-const userTables: UserTable[] = [
-  {
-    email: 'vbarrantes@consoricodhmont.com',
-    name: 'Victor Barrantes',
-    phone: '940373201',
-    admin: 'pi pi-times',
-    active: 'pi pi-check',
-    local: 'LOCAL PRINCIPAL'},
-  {
-    email: 'vitariomeza86@gmail.com',
-    name: 'ELIZABETH HURTADO',
-    phone: '941493377',
-    admin: 'pi pi-check',
-    active: 'pi pi-check',
-    local: 'LOCAL PRINCIPAL'},
-];
+// const userTables: UserTable[] = [
+//   {
+//     email: 'vbarrantes@consoricodhmont.com',
+//     name: 'Victor Barrantes',
+//     phone: '940373201',
+//     admin: 'pi pi-times',
+//     active: 'pi pi-check',
+//     local: 'LOCAL PRINCIPAL'},
+//   {
+//     email: 'vitariomeza86@gmail.com',
+//     name: 'ELIZABETH HURTADO',
+//     phone: '941493377',
+//     admin: 'pi pi-check',
+//     active: 'pi pi-check',
+//     local: 'LOCAL PRINCIPAL'},
+// ];

@@ -24,7 +24,7 @@ export class UsersEditComponent implements OnInit, OnDestroy {
     this.route.params.pipe(
       takeUntil(this.unsbscribeAll)
     ).subscribe(params => {
-      this.userService.getUserByPhone(params.phone);
+      // this.userService.getUserByPhone(params.phone);
     });
   }
 

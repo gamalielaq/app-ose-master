@@ -10,9 +10,11 @@ import localeEs from '@angular/common/locales/es';
 import { OseThemeModule } from '@ose/commons/theme';
 import { OsePermissionGuardModule } from '@ose/commons/guards';
 
+import { AuthInterceptor } from '../app/features/auth/commons/http/authInterceptor';
+
 registerLocaleData(localeEs);
 
-import {HttpClientModule, HttpClient} from '@angular/common/http';
+import {HttpClientModule, HttpClient, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
@@ -41,7 +43,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     })
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: 'en' }
+    {
+       provide: LOCALE_ID, useValue: 'en' 
+    },
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:  AuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
