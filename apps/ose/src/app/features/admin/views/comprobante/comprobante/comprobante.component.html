@@ -1,1 +1,191 @@
-<p>comprobante works!</p>
+<br>
+<h1>Comprobantes</h1><br>
+<div class="p-grid form-grid ">
+    <div class="p-col-12 p-md-6 p-md-6 p-lg-3 p-field p-d-flex p-ai-end">
+        <button class="w-100" type="button" pButton icon="pi pi-plus" label="Emitir Comprobante"
+            (click)="menu.toggle($event)">
+        </button>
+        <p-menu appendTo="menu" #menu [popup]="true" [model]="items"></p-menu>
+    </div>
+    <div class="p-col-12 p-md-6 p-md-6 p-lg-4">
+        <div class="p-fluid p-formgrid p-grid">
+            <div class="p-col-12 p-sm-12 p-lg-12 p-d-flex p-flex-column p-flex-md-row">
+                <div class="p-field p-col p-0">
+                    <label>Fecha Inicio</label>
+                    <div class="p-d-flex p-mr-3">
+                        <span class="p-input-icon-right">
+                            <p-calendar class="style-datepicker" dateFormat="dd/mm/yy" id="dataInicio" [showIcon]="true"
+                                inputId="icon">
+                            </p-calendar>
+                        </span>
+                    </div>
+                </div>
+                <div class="p-field p-col p-0">
+                    <label>Fecha Fin</label>
+                    <span class="p-input-icon-right">
+                        <p-calendar class="style-datepicker" dateFormat="dd/mm/yy" id="dataFin" [showIcon]="true"
+                            inputId="icon">
+                        </p-calendar>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-col-12 p-md-6 p-md-6 p-lg-2 p-field p-d-flex p-ai-end">
+        <button class="w-100" pButton type="button" icon="pi pi-search" label="Filtrar"></button>
+    </div>
+    <div class="p-col-12 p-md-6 p-md-6 p-lg-3 p-field p-d-flex p-ai-end">
+        <button class="w-100" pButton type="button" label="Descargar en EXCEL" icon="pi pi-cloud-download"></button>
+    </div>
+    <div class="p-col-12 p-md-6 p-md-6 p-lg-3">
+        <p-dropdown [options]="filterTipo" [(ngModel)]="selectTipo" optionLabel="name" [filter]="true" filterBy="name"
+            [showClear]="true" placeholder="Filtrar por tipo">
+            <ng-template let-tipo pTemplate="selectedItem">
+                <div *ngIf="selectTipo">
+                    <div>{{tipo.name}}</div>
+                </div>
+            </ng-template>
+            <ng-template let-tipo pTemplate="item">
+                <div>
+                    <div>{{tipo.name}}</div>
+                </div>
+            </ng-template>
+        </p-dropdown>
+    </div>
+    <div class="p-col-12 p-md-6 p-md-6 p-lg-3">
+        <p-dropdown [options]="entidad" [(ngModel)]="selectEntidad" optionLabel="name" [filter]="true" filterBy="name"
+            [showClear]="true" placeholder="Buscar Entidad">
+            <ng-template let-entidad pTemplate="selectedItem">
+                <div *ngIf="selectEntidad">
+                    <div>{{entidad.name}}</div>
+                </div>
+            </ng-template>
+            <ng-template let-entidad pTemplate="item">
+                <div>
+                    <div>{{entidad.name}}</div>
+                </div>
+            </ng-template>
+        </p-dropdown>
+    </div>
+    <div class="p-col-12 p-md-6 p-md-6 p-lg-3">
+        <p-dropdown [options]="entidad" [(ngModel)]="selectEntidad" optionLabel="name" [filter]="true" filterBy="name"
+            [showClear]="true" placeholder="Buscar documento por serie/número">
+            <ng-template let-entidad pTemplate="selectedItem">
+                <div *ngIf="selectEntidad">
+                    <div>{{entidad.name}}</div>
+                </div>
+            </ng-template>
+            <ng-template let-entidad pTemplate="item">
+                <div>
+                    <div>{{entidad.name}}</div>
+                </div>
+            </ng-template>
+        </p-dropdown>
+    </div>
+    <div class="p-col-12 p-md-6 p-md-6 p-lg-3 p-mb-5">
+        <p-dropdown [options]="entidad" [(ngModel)]="selectEntidad" optionLabel="name" [filter]="true" filterBy="name"
+            [showClear]="true" placeholder="Filtrar por estado de anulación">
+            <ng-template let-entidad pTemplate="selectedItem">
+                <div *ngIf="selectEntidad">
+                    <div>{{entidad.name}}</div>
+                </div>
+            </ng-template>
+            <ng-template let-entidad pTemplate="item">
+                <div>
+                    <div>{{entidad.name}}</div>
+                </div>
+            </ng-template>
+        </p-dropdown>
+    </div>
+    <br>
+    <div class="p-col-12 ">
+        <p-table [value]="comprobanteiList" [scrollable]="true" styleClass="style-comprobante">
+            <ng-template pTemplate="colgroup">
+                <colgroup>
+                    <col style="width: 80px" />
+                    <col style="width: 50px" />
+                    <col style="width: 50px" />
+                    <col style="width: 50px" />
+                    <col style="width: 100px" />
+                    <col style="width: 200px" />
+
+                    <col style="width: 50px" />
+                    <col style="width: 50px" />
+                    <col style="width: 70px" />
+                    <col style="width: 70px" />
+                    <col style="width: 70px" />
+
+                    <col style="width: 70px" />
+                    <col style="width: 70px" />
+                    <col style="width: 70px" />
+                    <col style="width: 50px" />
+                    <col style="width: 50px" />
+                    <col style="width: 50px" />
+                    <col style="width: 100px" />
+                </colgroup>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>FECHA</th>
+                    <th>TIPO</th>
+                    <th>SERIE</th>
+                    <th>NUM</th>
+                    <th>RUC, DNI, ETC</th>
+                    <th>
+                        <span class="rotate">
+                            DENOMINACIÓN
+                        </span>
+                    </th>
+                    <th>M</th>
+                    <th>TC</th>
+                    <th>TOTAL</th>
+                    <th class="text-aling-center">
+                        TOTAL GRATUITA
+                    </th>
+                    <th>PAGADO?</th>
+                    <th class="text-aling-center">
+                        ENVIADO AL CLIENTE?
+                    </th>
+                    <th class="text-aling-center">LEÍDO POR EL CLIENTE?</th>
+                    <th>IMPRIMIR</th>
+                    <th>PDF</th>
+                    <th>XML</th>
+                    <th>CDR</th>
+                    <th>ESTADO EN LA SUNAT</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-doc>
+                <tr>
+                    <td>{{doc.fecha}}</td>
+                    <td>{{doc.tipo}}</td>
+                    <td>{{doc.serie}}</td>
+
+                    <td>{{doc.num}}</td>
+                    <td>{{doc.documento}}</td>
+                    <td>{{doc.denominacion}}</td>
+                    <td>{{doc.m}}</td>
+
+                    <td>{{doc.tc}}</td>
+                    <td>{{doc.total}}</td>
+                    <td>{{doc.totalGratuita}}</td>
+                    <td>{{doc.pagado}}</td>
+                    <td>{{doc.enviado}}</td>
+                    <td>{{doc.leido}}</td>
+                    <td>
+
+                        <span class="p-badge p-badge-info">{{doc.imprimir}}</span>
+
+                    </td>
+                    <td>
+                        <span class="p-badge p-badge-danger">{{doc.pdf}}</span>
+                    </td>
+                    <td>{{doc.xml}}</td>
+                    <td>{{doc.cdr}}</td>
+                    <td>
+                        <span class="p-badge p-badge-danger">{{doc.estado}}</span>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

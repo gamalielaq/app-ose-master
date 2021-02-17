@@ -65,7 +65,6 @@ const monthData: Months[] = [
   ];
 
   const filter = [
-    { name: 'Filtrar por tipo', code: '01' },
     { name: 'Buscar por entidad', code: '02' },
     { name: 'Buscar documento por serie / numero', code: '03' },
     { name: 'Filtrar por estado de anulacion', code: '04' },
