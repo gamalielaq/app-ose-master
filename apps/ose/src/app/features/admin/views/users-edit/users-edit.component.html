@@ -1,14 +1,4 @@
-<!-- <form [formGroup]="formGroup" (ngSubmit)="save()"> -->
 <form [formGroup]="form" (ngSubmit)="save()">
-
-    <!-- <div class="dialog-header">
-            <div class="p-d-flex p-jc-between">
-                <div>
-                   <h1></h1>
-                </div>
-            </div>
-        </div>
-        -->
     <div class="dialog-content">
         <div class="p-fluid p-formgrid p-grid">
             
@@ -63,11 +53,6 @@
     <div class="dialog-footer">
         <div class="p-grid p-col-12">
             <div class="p-col-12 p-d-flex p-j p-justify-end">
-                <div class="bg_red-solid-1">
-                    <!-- <button arabic class="p-py-2" pButton pRipple type="button" code="button-cancel" [label]="'button-cancel' | translate" (click)="ref.close()">
-                    <i class="pi pi-times-circle p-mr-1"></i>
-                  </button> -->
-                </div>
                 <div class="bg_green-solid-1 p-ml-3">
                     <button class="p-py-2" code="button-save" pButton pRipple type="submit" label="Guardar">
                         <i class="pi pi-save p-mr-1"></i>

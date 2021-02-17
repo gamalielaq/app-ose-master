@@ -25,9 +25,8 @@ export class UsersComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this._userService.getUserAll().subscribe(res => {
-      this.users = res;
-    });
+    
+    this.cargarData();
 
     this.msgs.push({
       severity: 'warn', summary: 'IMPORTANTE',
@@ -54,8 +53,9 @@ export class UsersComponent implements OnInit {
       acceptLabel: 'Si',
       rejectLabel: 'No',
       accept: () => {
-        this._userService.deleteUser('20').then( (res : string)  => {
+        this._userService.deleteUser(user).then( (res : string)  => {
           this.showViaService(res['message'] , 'success');
+          this.cargarData();
         });
       },
       reject: () => {
@@ -81,6 +81,12 @@ export class UsersComponent implements OnInit {
     this.messageService.add({
       severity:color, summary:'', detail:message
     }); 
+  }
+
+  cargarData() {
+    this._userService.getUserAll().subscribe(res => {
+      this.users = res;
+    });
   }
 
 }

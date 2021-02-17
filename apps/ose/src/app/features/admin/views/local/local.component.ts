@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { DialogService } from 'primeng/dynamicdialog';
 
-import { UserService } from './../../../../core/service/user.service';
 
 @Component({
   selector: 'app-local',
@@ -10,10 +11,24 @@ import { UserService } from './../../../../core/service/user.service';
 export class LocalComponent implements OnInit {
 
   constructor(
-    public userService: UserService
+    private dialogService: DialogService,
+    private confirmationService: ConfirmationService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit() {
   }
+
+
+  addLocal(): void {
+    const ref = this.dialogService.open(LocalComponent, {
+      showHeader: true,
+      header: 'Nuevo Usuario',
+      styleClass: '',
+      width: '60%',
+      baseZIndex: 10000,
+    });
+  }
+
 
 }

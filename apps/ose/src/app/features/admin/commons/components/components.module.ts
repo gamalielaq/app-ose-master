@@ -14,6 +14,7 @@ import { OseInputFileModule } from '@ose/commons/components';
 import { ReportChartComponent } from './report-chart/report-chart.component';
 import { ChartsModule } from 'ng2-charts';
 import { ReportFormComponent } from './report-form/report-form.component';
+import { LocalComponent } from './local/local.component';
 
 const COMPONENTS = [
   MenuComponent,
@@ -23,7 +24,8 @@ const COMPONENTS = [
   WorkshopDeleteModalComponent,
   WorkshopUploadPosterComponent,
   ReportChartComponent,
-  ReportFormComponent
+  ReportFormComponent,
+  LocalComponent
 ];
 
 @NgModule({
@@ -38,7 +40,6 @@ const COMPONENTS = [
     OseDefaultImgPipeModule,
     OseInputFileModule,
     ChartsModule,
-
   ]
 })
 export class ComponentsModule { }

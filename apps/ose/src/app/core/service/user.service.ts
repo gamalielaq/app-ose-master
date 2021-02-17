@@ -40,8 +40,8 @@ export class UserService {
     }
   }
   
-  deleteUser(id: string) {
-    return this._http.delete(`${environment.api}/api/Accounts/${id}`).toPromise();
+  deleteUser(user: User) {
+    return this._http.delete(`${environment.api}/api/Accounts/${user.usuariO_ID}`).toPromise();
   }
 
 }

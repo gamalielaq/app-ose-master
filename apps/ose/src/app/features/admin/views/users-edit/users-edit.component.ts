@@ -76,7 +76,7 @@ export class UsersEditComponent implements OnInit, OnDestroy {
       this._userService.process(this.config.data, this.type).then(res => {
         this.showViaService('Usuario Guardado con Éxito', 'success');
         this.ref.close();
-        this._userService.getUserAll().subscribe();
+        this.cargarData();
       }).catch(err => {
         console.log(err);
       });
@@ -105,5 +105,11 @@ export class UsersEditComponent implements OnInit, OnDestroy {
     this.messageService.add({
       severity:color, summary:'', detail:message
     }); 
+  }
+
+  cargarData() {
+    this._userService.getUserAll().subscribe(res => {
+      this.users = res;
+    });
   }
 }
