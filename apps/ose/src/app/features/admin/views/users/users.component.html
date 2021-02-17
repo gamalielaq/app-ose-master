@@ -1,70 +1,35 @@
 <div class="ui-fluid text-center">
   <div class="p-field">
     <h1>Usuarios</h1>
-    <p-messages [(value)]="msgs"></p-messages>
-
-    <button pButton type="submit" id="user-btn" label="Nuevo usuario" 
-    ></button>
-  
+    <!-- <p-messages [(value)]="msgs"></p-messages> -->
+    <button pButton type="submit" id="user-btn" (click)="newUser(null, 'add')" label="Nuevo usuario"></button>
+    <hr>
     <p-table [value]="users">
       <ng-template pTemplate="header">
-          <tr>
-              <th>Email</th>
-              <th>Nombre</th>
-              <th>Telefono</th>
-              <th>Actions</th>
-          </tr>
+        <tr>
+          <th>Email</th>
+          <th>Usuario</th>
+          <th>Telefono</th>
+          <th>Actions</th>
+        </tr>
       </ng-template>
       <ng-template pTemplate="body" let-user>
-          <tr>
-              <td>{{user.usuariO_CORREO}}</td>
-              <td>{{user.usuariO_NICKNAME}}</td>
-              <td>{{user.usuariO_TELEFONO}}</td>
-              <td>
-                <button
-                pButton type="button" 
-                class="p-button-raised p-button-rounded p-button-outlined p-button-info p-mr-2" icon="pi pi-pencil">
-              </button>
-              
-              <button 
-              
-              pButton type="button" 
+        <tr>
+          <td>{{user.usuariO_CORREO}}</td>
+          <td>{{user.usuariO_NICKNAME}}</td>
+          <td>{{user.usuariO_TELEFONO}}</td>
+          <td>
+            <button (click)="editUser(user, 'edit')" pButton type="button"
+              class="p-button-raised p-button-rounded p-button-outlined p-button-info p-mr-2" icon="pi pi-pencil">
+            </button>
+
+            <button (click)="deleteUser(user)" pButton type="button"
               class="p-button-raised p-button-rounded p-button-outlined p-button-danger" icon="pi pi-trash"></button>
 
-              </td>
-          </tr>
+          </td>
+        </tr>
       </ng-template>
-  </p-table>
-  
-    <!-- <p-table [value]="users">
-      <ng-template pTemplate="header">
-          <tr>
-              <th>EMAIL</th>
-              <th>NOMBRE COMPLETO</th>
-              <th>TELEFONO</th>
-              <th>ADMINISTRADOR?</th>
-              <th>ACTIVO?</th>
-              <th>LOCALES</th>
-              <th></th>
-          </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-user>
-          <tr>
-              <td>{{user.usuariO_CORREO}}</td>
-              <td>{{user.usuariO_NICKNAME}}</td>
-              <td>{{user.usuariO_TELEFONO}}</td>
-              <td>
-                <i [class]="user.admin"></i>
-              </td>
-              <td>
-                <i [class]="user.active"></i>
-              </td>
-              <td>{{user.local}}</td>
-              <td [routerLink] = "['/administrador/users', user.phone]" [style] ="{'cursor': 'pointer', 'color' : '#2196F3'}" >
-                Opciones
-              </td>
-          </tr>
-      </ng-template>
-    </p-table> -->
+    </p-table>
+    <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
   </div>
 </div>

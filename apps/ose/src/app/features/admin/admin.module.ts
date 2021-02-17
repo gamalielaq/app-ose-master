@@ -20,6 +20,9 @@ import { LocalComponent } from './views/local/local.component';
 import { DocumentComponent } from './views/document/document.component';
 import { ApiComponent } from './views/api/api.component';
 
+import { SharedModule } from '../../shared/shared.module';
+import { MessageService } from 'primeng/api';
+
 @NgModule({
   declarations: [
     AdminComponent,
@@ -41,7 +44,10 @@ import { ApiComponent } from './views/api/api.component';
     AdminRoutingModule,
     AdminCommonsModule,
     UiModule,
-    FormsModule
-  ]
+    FormsModule,
+    SharedModule
+  ],
+  entryComponents:[UsersEditComponent],
+  providers:[MessageService]
 })
 export class AdminModule { }

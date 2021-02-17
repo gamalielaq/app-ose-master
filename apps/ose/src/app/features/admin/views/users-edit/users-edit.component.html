@@ -1,78 +1,79 @@
-New user
+<!-- <form [formGroup]="formGroup" (ngSubmit)="save()"> -->
+<form [formGroup]="form" (ngSubmit)="save()">
 
-<!-- <div class="ui-fluid text-center">  
-  <div class="p-fluid">
-    <div class="p-col-6 p-offset-3">
-      <h1>Editar</h1>
-      <div class="p-field">
-        <label for="email">Email principal!</label>
-        <div class="p-col">
-          <input type="text" id="email" pInputText [(ngModel)]="userService.user[0].email"/>
-        </div>        
-      </div>
-      <div class="p-grid">
-        <div class="p-col-6">
-          <div class="p-field">
-            <label for="password">Password!</label>
-            <div class="p-col">
-              <input type="text" id="password" pInputText/>
-            </div>        
-          </div>
+    <!-- <div class="dialog-header">
+            <div class="p-d-flex p-jc-between">
+                <div>
+                   <h1></h1>
+                </div>
+            </div>
         </div>
-        <div class="p-col-6">
-          <div class="p-field">
-            <label for="confirm-password">Confirmar Password!</label>
-            <div class="p-col">
-              <input type="text" id="confirm-password" pInputText/>
-            </div>        
-          </div>
+        -->
+    <div class="dialog-content">
+        <div class="p-fluid p-formgrid p-grid">
+            
+            <div class="p-field p-col-6">
+                <label for="lastname1">Nombres</label>
+                <input 
+                formControlName="UsuarioNombre"
+                type="text" pInputText> 
+                <span class="form-text text-danger" *ngIf="this.form.get('UsuarioNombre')?.invalid && this.form.get('UsuarioNombre')?.touched">Ingrese un Nombre</span>
+            </div>
+
+            <div class="p-field p-col-6">
+                <label>Email</label>
+                <input 
+                formControlName="UsuarioCorreo"
+                type="text" pInputText> 
+                <span class="form-text text-danger" *ngIf="this.form.get('UsuarioCorreo')?.invalid && this.form.get('UsuarioCorreo')?.touched"> Email requerido</span>
+            </div>
+            <div class="p-field p-col-6">
+                <label for="lastname1">Usuario</label>
+                <input 
+                formControlName="UsuarioNickname"
+                type="text" pInputText> 
+                <span class="form-text text-danger" *ngIf="this.form.get('UsuarioNickname')?.invalid && this.form.get('UsuarioNickname')?.touched"> Ingrese Usuario</span>
+            </div>
+
+            <div class="p-field p-col-6">
+                <label for="firstname1">Contraseña</label>
+
+                <input formControlName="UsuarioPassword"
+                required
+                 type="text" pInputText> 
+                 <span class="form-text text-danger" *ngIf="this.form.get('UsuarioPassword')?.invalid && this.form.get('UsuarioPassword')?.touched"> Ingrese Una contraseña</span>
+            </div>
+
+            
+            <div class="p-field p-col-6">
+                <label for="firstname1">Confirmar Contraseña</label>
+                <input formControlName="confirmPassword"
+                 type="text" pInputText> 
+                 <span class="form-text text-danger" *ngIf="this.form.get('confirmPassword')?.invalid && this.form.get('confirmPassword')?.touched"> Ingrese Contraseña</span>
+            </div>
+
+            <div class="p-field p-col-6">
+                <label for="firstname1">Telefono</label>
+                <input formControlName="UsuarioTelefono"
+                 type="text" pInputText> 
+            </div>
+
+        </div> 
+    </div>
+    <div class="dialog-footer">
+        <div class="p-grid p-col-12">
+            <div class="p-col-12 p-d-flex p-j p-justify-end">
+                <div class="bg_red-solid-1">
+                    <!-- <button arabic class="p-py-2" pButton pRipple type="button" code="button-cancel" [label]="'button-cancel' | translate" (click)="ref.close()">
+                    <i class="pi pi-times-circle p-mr-1"></i>
+                  </button> -->
+                </div>
+                <div class="bg_green-solid-1 p-ml-3">
+                    <button class="p-py-2" code="button-save" pButton pRipple type="submit" label="Guardar">
+                        <i class="pi pi-save p-mr-1"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>      
-      <div class="p-field">
-        <label for="name">Nombre completo!</label>
-        <div class="p-col">
-          <input type="text" id="name" pInputText [(ngModel)]="userService.user[0].name"/>
-        </div>        
-      </div>
-      <div class="p-field">
-        <label for="name">Telefono movil(9 caracteres exactos)</label>
-        <div class="p-col">
-          <input type="text" id="name" pInputText [(ngModel)]="userService.user[0].phone"/>
-        </div>        
-      </div>
-      <h1>Permisos para este usuario</h1>
-      <div class="p-col">
-        <p-card [style] ="{'border-radius': '30px'}">
-          Configuracion principal de empresa (Autorizar concuidado)
-          <div class="p-col">
-            <p-inputSwitch [(ngModel)]="configuration[0]"></p-inputSwitch>
-          </div>        
-        </p-card>
-      </div>
-      <div class="p-col">
-        <p-card [style] ="{'border-radius': '30px'}">
-          Consistencia de Comprobantes
-          <div class="p-col">
-            <p-inputSwitch [(ngModel)]="configuration[1]"></p-inputSwitch>
-          </div>        
-        </p-card>
-      </div>
-      <div class="p-col">
-        <p-card [style] ="{'border-radius': '30px'}">
-          Consolidados de Ventas, Guias, Retenciones, Percepciones
-          <div class="p-col">
-            <p-inputSwitch [(ngModel)]="configuration[2]"></p-inputSwitch>
-          </div>        
-        </p-card>
-      </div>
-      <div class="p-col">
-        <p-card [style] ="{'border-radius': '30px'}">
-          POS(Point of Sale)
-          <div class="p-col">
-            <p-inputSwitch [(ngModel)]="configuration[3]"></p-inputSwitch>
-          </div>        
-        </p-card>
-      </div>      
-    </div>   
-  </div>
-</div> -->
+    </div>
+</form>

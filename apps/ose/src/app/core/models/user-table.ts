@@ -8,6 +8,27 @@ export interface User{
   perfiL_DESCRIPCION: string;
 }
 
+// export interface User2 {
+//   ContribuyenteId: number;
+//   PerfilId:        number;
+//   UsuarioCorreo:   string;
+//   UsuarioNickname: string;
+//   UsuarioNombre:   string;
+//   UsuarioPassword: string;
+//   UsuarioTelefono: string;
+//   confirmPassword: string;
+// }
+
+// export interface User {
+//   contribuyente_id: number;
+//   perfil_id:        number;
+//   usuario_nickname: string;
+//   usuario_password: string;
+//   confirmPassword:  string;
+//   usuario_correo:   string;
+//   usuario_telefono: string;
+//   usuario_nombre:   string;
+// }
 
 
 // export interface User{

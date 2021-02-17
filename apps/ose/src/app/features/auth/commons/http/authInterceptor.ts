@@ -12,7 +12,6 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): any {
 
     const authToken = localStorage.getItem('token');
-    console.log("paso el interceptor");
 
     const headers = new HttpHeaders({
         'Authorization': `Bearer ${authToken}`
@@ -21,14 +20,7 @@ export class AuthInterceptor implements HttpInterceptor {
     const reqClone =  req.clone({
         headers
     })
-    // const authReq = req.clone({
-    //   setHeaders: {
-    //     Authorization: `Bearer ${authToken}`
-    //   },
-    // });
-
-    
-    
+     
     return next.handle(reqClone);
   }
 }

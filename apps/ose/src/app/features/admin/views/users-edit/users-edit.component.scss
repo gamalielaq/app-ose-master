@@ -1,0 +1,74 @@
+.section-dialog {
+    font-size: 14px;
+    padding: 1rem;
+    background: #F4F4F4;
+}
+.p-dialog {
+    .p-dialog-content {
+        // overflow: hidden !important;
+        padding: 0px;
+        max-height: 100% !important;
+    }
+}
+.dialog-header {
+    padding: 1rem 1.5rem;
+    background: #41acfd;
+    color: #fff;
+}
+.dialog-content {
+    display: block;
+    max-height: 70vh;
+    overflow-y: hidden;
+    padding: 1rem 1.5rem;
+    background: #FFFFFF;
+    overflow-x:hidden;
+    // label {
+    //     color: #7A7A7A;
+    //     font-weight: bold;
+    //     font-size: 12px;
+    //     display: flex;
+    // }
+    // input, .p-dropdown {
+    //     height: 40px;
+    // }
+    // input, .p-dropdown, textarea {
+    //     border: 1px solid #F4F4F4;
+    //     width: 100%;
+    // }
+    // .p-inputtext {
+    //     color: #7A7A7A;
+    // }
+    // textarea, .ta-justfy{
+    //     text-align: justify;
+    // }
+    // .section {
+    //     padding: 1rem;
+    // }
+}
+.dialog-footer {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 52px;
+    align-items: center;
+    box-sizing: content-box;
+    padding: 0.5rem 1rem 1rem 1rem;
+    text-align: center;
+}
+// .openTextarea {
+//     textarea {
+//         height: auto;
+//         transition: width 300ms ease-out, height 300ms ease-out;
+//     }
+// }
+// .closeTextarea {
+//     textarea {
+//         height: 3.6rem !important;
+//         transition: width 300ms ease-out, height 300ms ease-out;
+//     }
+// }
+.style-dialog-objetive{ 
+    @media screen and (max-width: 1485px) {
+        width: 70% !important;
+    }
+}
