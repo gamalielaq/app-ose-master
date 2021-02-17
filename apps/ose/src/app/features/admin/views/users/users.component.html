@@ -1,10 +1,23 @@
+<br>
 <div class="ui-fluid text-center">
   <div class="p-field">
     <h1>Usuarios</h1>
     <!-- <p-messages [(value)]="msgs"></p-messages> -->
     <button pButton type="submit" id="user-btn" (click)="newUser(null, 'add')" label="Nuevo usuario"></button>
     <hr>
-    <p-table [value]="users">
+    <p-table
+    [value]="users"
+    [scrollable]="true"
+    styleClass="p-table-users"
+    >
+      <ng-template pTemplate="colgroup">
+        <colgroup>
+          <col style="width: 300px" />
+          <col style="width: 180px" />
+          <col style="width: 180px" />
+          <col style="width: 100px" />
+        </colgroup>
+      </ng-template>
       <ng-template pTemplate="header">
         <tr>
           <th>Email</th>

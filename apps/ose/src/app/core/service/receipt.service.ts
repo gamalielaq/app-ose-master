@@ -1,12 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Months, Period, Year, Filter } from '../models/receipt';
+import { Document } from '../models/document';
+import { Observable } from 'rxjs';
+import { environment } from 'apps/ose/src/environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReceiptService {
 
-  constructor() { }
+  constructor(
+    private _http: HttpClient
+  ) { }
+
+
+  getDocumentsAll(): Observable<Document> {
+    console.log('llamando al server');
+    
+    return this._http.get<Document>(`${environment.api}/api/tipo_documento/`).pipe(res => res);
+  }
 
   getMonths(): Months[]  {
     return monthData;

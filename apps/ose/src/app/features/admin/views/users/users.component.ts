@@ -40,7 +40,7 @@ export class UsersComponent implements OnInit {
       showHeader: true,
       header: 'Nuevo Usuario',
       styleClass: '',
-      width: '50%',
+      width: '60%',
       baseZIndex: 10000,
       data: {
         type: type
@@ -68,7 +68,7 @@ export class UsersComponent implements OnInit {
       showHeader: true,
       header: 'Actualizar Usuario',
       styleClass: '',
-      width: '50%',
+      width: '60%',
       baseZIndex: 10000,
       data: {
         user: user,

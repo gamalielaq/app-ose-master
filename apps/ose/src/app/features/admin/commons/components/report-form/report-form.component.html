@@ -1,12 +1,13 @@
 <div class="p-grid">
-  <ng-container *ngFor = "let item of adminItems">
-    <div class="p-col" [routerLink]="item.route">
-      <p-card class="admin-item" [style]="{'width': '25rem', 'margin-bottom': '2em', 'padding': '10px',  'border-radius': '30px', 'border': '2px solid grey'}">
-        <ng-template pTemplate="header">
-          <i [class]="item.icon"></i>
-        </ng-template>
-        <p class="admin-text">{{ item.name }}</p>
-      </p-card>
-    </div>
-  </ng-container>  
+    <ng-container *ngFor="let item of adminItems">
+        <div class="p-col-12 p-md-4" [routerLink]="item.route">
+            <p-card class="admin-item"
+        [style]="{'margin-bottom': '1em', 'padding': '10px',  'border-radius': '20px', 'border': '2px solid grey'}">
+                <ng-template pTemplate="header">
+                    <i [class]="item.icon"></i>
+                </ng-template>
+                <p class="admin-text">{{ item.name }}</p>
+            </p-card>
+        </div>
+    </ng-container>
 </div>

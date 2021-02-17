@@ -21,4 +21,7 @@ $mat-dark-theme: mat-dark-theme($mat-dark-primary, $mat-dark-secondary);
     right: 0;
     bottom: 0;
     overflow-y: scroll;
+}s
+.p-datatable .p-datatable-tbody > tr > td {
+    padding: 0.5rem !important;
 }

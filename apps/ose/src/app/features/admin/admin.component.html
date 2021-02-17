@@ -1,34 +1,29 @@
-
-<mat-drawer-container>
-  <mat-drawer #drawer class="mat-elevation-z4" mode="side" opened>
-    <app-menu [name]="presenter.name" [options]="presenter.menuOpts"></app-menu>
-  </mat-drawer>
-  <mat-drawer-content>
-    <mat-toolbar color="primary" class="mat-elevation-z8">
-      <mat-toolbar-row>
-        <div>
-          <button mat-icon-button (click)="drawer.toggle()">
-            <mat-icon>menu</mat-icon>
-          </button>
-          <span>Administrador</span>
+<mat-sidenav-container>
+    <mat-sidenav-content>
+        <div class="main mb-5">
+            <div class="app-header">
+                <mat-toolbar-row>
+                    <div class="p-d-flex p-ai-center p-jc-between toolbar p-2">
+                        <div class="p-d-flex p-ai-center">
+                            <button mat-icon-button (click)="drawer.toggle()">
+                                <mat-icon>menu</mat-icon>
+                            </button>
+                            <span>Administrador</span>
+                        </div>
+                        <button (click)="logout()" mat-button>
+                            <mat-icon>exit_to_app</mat-icon>
+                            <span>Cerrar Sesión</span>
+                        </button>
+                    </div>
+                </mat-toolbar-row>
+            </div>
+            <div class="main-content">
+                <p-messages styleClass="style-message"></p-messages>
+                <router-outlet></router-outlet>
+            </div>
         </div>
-
-        <div>
-          <button (click)="back()"  mat-button>
-            <span> - Regresar</span>
-          </button>
-  
-          <button (click)="logout()" mat-button>
-            <mat-icon>exit_to_app</mat-icon>
-            <span>Cerrar Sesión</span>
-          </button>
-        </div>
-
-      </mat-toolbar-row>
-    </mat-toolbar>
-    <div class="page-container">
-      <p-messages styleClass="style-message"></p-messages>
-        <router-outlet></router-outlet>
-    </div>
-  </mat-drawer-content>
-</mat-drawer-container>
+    </mat-sidenav-content>
+    <mat-sidenav class="sidenav bg-blue-p" #drawer opened="true" [mode]="isSmallScreen? 'over': 'side'">
+        <app-menu [name]="presenter.name" [options]="presenter.menuOpts"></app-menu>
+    </mat-sidenav>
+</mat-sidenav-container>

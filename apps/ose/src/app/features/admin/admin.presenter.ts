@@ -6,10 +6,6 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class AdminPresenter {
-  private allMenuOpts: MenuOption[] =  [
-    { title: 'Talleres', icon: 'bookmark', url: '/administrador/talleres', roles: [ UserRol.admin, UserRol.admin ] },
-    { title: 'Instructores', icon: 'bookmark', url: '/administrador/instructores', roles: [ UserRol.admin ] },
-  ];
 
   get name() {
     return this.session.user.fullName;
@@ -28,4 +24,11 @@ export class AdminPresenter {
     this.session.destroy();
     this.router.navigateByUrl('/');
   }
+  
+  private allMenuOpts: MenuOption[] =  [
+    { title: 'Inicio', icon: 'bookmark', url: '/administrador', roles: [ UserRol.admin, UserRol.admin ] },
+    { title: 'Usuarios', icon: 'bookmark', url: '/administrador/users', roles: [ UserRol.admin ] },
+    { title: 'Locales', icon: 'bookmark', url: '/administrador/local', roles: [ UserRol.admin ] },
+    { title: 'Comprovantes', icon: 'bookmark', url: '/administrador/document', roles: [ UserRol.admin ] }    
+  ];
 }

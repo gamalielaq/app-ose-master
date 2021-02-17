@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Document } from 'apps/ose/src/app/core/models/document';
 import { Months, Period, Year, Filter } from '../../../../core/models/receipt';
 import { ReceiptService } from '../../../../core/service/receipt.service';
 
@@ -22,11 +23,19 @@ export class DocumentComponent implements OnInit {
   selectedYearStart: Year;
   selectedYearEnd: Year;
 
+  documents: Document;
+
   constructor(
     private _receiptService: ReceiptService
   ) { }
 
   ngOnInit() {
+    this._receiptService.getDocumentsAll().subscribe( res=> {
+      console.log(res);
+      this.documents = res;
+      return res;
+    });
+
     this.msgs.push({severity: 'warn', summary: 'IMPORTANTE', detail: 'No existen registros'});
 
     this.period = this._receiptService.getPeriod();
