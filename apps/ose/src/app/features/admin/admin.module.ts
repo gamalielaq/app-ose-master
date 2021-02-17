@@ -22,6 +22,10 @@ import { ApiComponent } from './views/api/api.component';
 
 import { SharedModule } from '../../shared/shared.module';
 import { MessageService } from 'primeng/api';
+import { EntitiComponent } from './views/entiti/entiti/entiti.component'
+import { EntitiListComponent } from './views/entiti/entiti-list/entiti-list.component';
+import { ComprobanteComponent } from './views/comprobante/comprobante/comprobante.component'
+
 
 @NgModule({
   declarations: [
@@ -37,7 +41,10 @@ import { MessageService } from 'primeng/api';
     ConfigurationComponent,
     LocalComponent,
     DocumentComponent,
-    ApiComponent
+    ApiComponent,
+    EntitiComponent,
+    EntitiListComponent,
+    ComprobanteComponent
   ],
   imports: [
     CommonModule,

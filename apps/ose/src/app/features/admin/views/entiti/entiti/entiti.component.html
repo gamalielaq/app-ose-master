@@ -1,0 +1,78 @@
+<div class="p-col-12 p-d-flex p-jc-between p-ai-center">
+    <h1>{{ labelentiti }}</h1>
+    <button (click)="regresar()" pButton type="button" icon="pi pi-arrow-left" label="Regresar"></button>
+</div>
+<br>
+<hr><br>
+<div class="p-fluid p-formgrid p-grid">
+    <div class="p-field p-col-12 p-sm-12 p-lg-4 p-d-flex p-flex-column p-flex-md-row">
+        <div class="p-field p-col p-0">
+            <label>Número (RUC, DNI, Etc) </label>
+            <div class="p-d-flex">
+                <input type="text" pInputText />
+                <button class="p-ml-1 p-mr-2" pButton type="button" icon="" label="Extraer"></button>
+            </div>
+        </div>
+        <div class="p-field p-col p-0">
+            <label>Tipo</label>
+            <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"></p-dropdown>
+        </div>
+    </div>
+    <div class="p-field p-col-12 p-sm-6 p-lg-5">
+        <label>Razón social o nombre completo </label>
+        <input type="text" pInputText />
+    </div>
+    <div class="p-field p-col-12 p-sm-6 p-lg-3">
+        <label>Razón comercial (Marca)</label>
+        <input type="text" pInputText />
+    </div>
+
+    <div class="p-field p-col-12 p-sm-6 p-lg-4">
+        <label>Dirección fiscal</label>
+        <input type="text" pInputText />
+    </div>
+    <div class="p-field p-col-12 p-sm-6 p-lg-3">
+        <label>Email principal</label>
+        <input type="text" pInputText />
+    </div>
+    <div class="p-field p-col-12 p-sm-6 p-lg-3">
+        <label>1er Email opcional</label>
+        <input type="text" pInputText />
+    </div>
+    <div class="p-field p-col-12 p-sm-6 p-lg-2">
+        <label>2do Email opcional</label>
+        <input type="text" pInputText />
+    </div>
+
+    <div class="p-field p-col-12 p-sm-6 p-lg-2">
+        <label>Móvil (opcional)</label>
+        <input type="text" pInputText />
+    </div>
+
+    <div class="p-field p-col-12 p-sm-6 p-lg-2">
+        <label>MFijo (opcional)</label>
+        <input type="text" pInputText />
+    </div>
+
+    <div class="p-field p-col-12 p-sm-6 p-lg-3">
+        <label>N. Cta. detracción del cliente</label>
+        <input type="text" pInputText />
+    </div>
+
+    <div class="p-field p-col-12 p-sm-6 p-lg-5">
+        <label>Detalle adicional (opcional)</label>
+        <input type="text" pInputText />
+    </div>
+</div>
+<div class="p-d-flex p-jc-center w-100 p-mb-4">
+    <button pButton type="button" label="Crear Entidad"></button>
+</div>
+<hr>
+<div class="p-d-flex w-100  p-jc-center">
+    <span class="text-aling-center">
+        <p>jesus</p>
+        <p>BEJARANO AGUILAR JESUS JOSUE</p>
+        <p>RUC: 10701505153</p>
+    </span>
+</div>
+<hr>

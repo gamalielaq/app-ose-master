@@ -29,6 +29,7 @@ export class AdminPresenter {
     { title: 'Inicio', icon: 'bookmark', url: '/administrador', roles: [ UserRol.admin, UserRol.admin ] },
     { title: 'Usuarios', icon: 'bookmark', url: '/administrador/users', roles: [ UserRol.admin ] },
     { title: 'Locales', icon: 'bookmark', url: '/administrador/local', roles: [ UserRol.admin ] },
-    { title: 'Comprovantes', icon: 'bookmark', url: '/administrador/document', roles: [ UserRol.admin ] }    
+    { title: 'Comprovantes', icon: 'bookmark', url: '/administrador/document', roles: [ UserRol.admin ] } ,   
+    { title: 'Entidades', icon: 'bookmark', url: '/administrador/entiti', roles: [ UserRol.admin ] }    
   ];
 }

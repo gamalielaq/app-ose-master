@@ -5,9 +5,11 @@ $header-height: 48px;
     color: #ffff;
 }
 .main-content {
-    width: 98%;
+    width: 92%;
+    margin-top: 1rem;
     margin-right: auto;
     margin-left: auto;
+    min-height: 90vh;
 }
 mat-toolbar-row {
     height: $header-height;
@@ -22,3 +24,10 @@ mat-sidenav {
     width: 290px;
     position: fixed;
 }
+
+@media screen and (min-width: 720px) {
+    .main-content {
+        width: 97%;
+    }
+}
+

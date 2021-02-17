@@ -1,0 +1,92 @@
+<h1>Clientes y Proveedores</h1>
+
+<div class="p-grid form-grid ">
+    <div class="p-col-12 p-md-6 p-md-6 p-lg-3">
+        <button 
+        (click)="add()"
+        class="w-100" pButton type="button" label="Nueva entidad"></button>
+    </div>
+    <div class="p-col-12 p-md-6 p-md-6 p-lg-3">
+        <button class="w-100" pButton type="button" label="Descargar en EXCEL" icon="pi pi-cloud-download"></button>
+
+    </div>
+    <div class="p-col-12 p-md-6 p-md-6 p-lg-3">
+        <button class="w-100" pButton type="button" label="Subir entidades desde EXCEL" icon="pi pi-cloud-upload">
+        </button>
+
+    </div>
+    <div class="p-col-12 p-md-6 p-md-6 p-lg-3">
+        <p-dropdown [options]="entities" [(ngModel)]="selectedEntitie" optionLabel="name" [filter]="true"
+            filterBy="name" [showClear]="true" placeholder="Selecciona una entidad">
+            <ng-template let-entiti pTemplate="selectedItem">
+                <div *ngIf="selectedEntitie">
+                    <div>{{entiti.name}}</div>
+                </div>
+            </ng-template>
+            <ng-template let-entiti pTemplate="item">
+                <div>
+                    <div>{{entiti.name}}</div>
+                </div>
+            </ng-template>
+        </p-dropdown>
+
+    </div>
+    <div class="p-col-12 ">
+        <p-table [value]="entitiList" [scrollable]="true" styleClass="p-table-style">
+            <ng-template pTemplate="colgroup">
+                <colgroup>
+                    <col style="width: 50px" />
+                    <col style="width: 100px" />
+                    <col style="width: 250px" />
+                    <col style="width: 250px" />
+                    <col style="width: 150px" />
+                    <col style="width: 100px" />
+                    <col style="width: 100px" />
+                    <col style="width: 130px" />
+                </colgroup>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Tipo</th>
+                    <th>Número</th>
+                    <th>Denominación/ Nombres</th>
+                    <th>Dirección Fiscal</th>
+                    <th>Emails</th>
+                    <th>Teléfonos</th>
+                    <th class="aling-center">Comprobantes Emitidos</th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-entiti>
+                <tr>
+                    <td>{{entiti.tipo}}</td>
+                    <td>{{entiti.numero}}</td>
+                    <td>{{entiti.nombre}}</td>
+
+                    <td>{{entiti.direccion}}</td>
+                    <td>{{entiti.email}}</td>
+                    <td>{{entiti.telefono}}</td>
+                    <td>
+                        <p-button [label]="entiti.comprovante" styleClass="p-button-link"></p-button>
+
+                        <!-- {{entiti.comprovante}} -->
+
+                    </td>
+                    <td>
+                        <div class="p-d-flex">
+                            <button (click)="edit()"
+                            pButton type="button"
+                                class="p-button-raised p-button-rounded p-button-outlined p-button-info p-mr-2"
+                                icon="pi pi-pencil">
+                            </button>
+                            <button pButton type="button"
+                                class="p-button-raised p-button-rounded p-button-outlined p-button-danger"
+                                icon="pi pi-trash"></button>
+                        </div>
+
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

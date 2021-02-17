@@ -17,6 +17,8 @@ import { ConfigurationComponent } from './views/configuration/configuration.comp
 import { LocalComponent } from './views/local/local.component';
 import { DocumentComponent } from './views/document/document.component';
 import { ApiComponent } from './views/api/api.component';
+import { EntitiComponent } from './views/entiti/entiti/entiti.component';
+import { EntitiListComponent } from './views/entiti/entiti-list/entiti-list.component';
 
 const routes: Routes = [
   {
@@ -47,6 +49,12 @@ const routes: Routes = [
       },
       {
         path: 'local', component: LocalComponent
+      },
+      {
+        path: 'entiti', component: EntitiListComponent
+      },
+      {
+        path: 'entiti/:id', component: EntitiComponent
       },
       {
         path: 'document', component: DocumentComponent
