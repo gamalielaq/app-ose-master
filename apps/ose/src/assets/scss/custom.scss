@@ -29,6 +29,9 @@
     padding: 0.5rem !important;
 }
 .p-table-style {
+    table > thead > tr > th {
+        font-size: 13px;
+    }
     table > tbody > tr > td {
         font-size: 13px;
         .p-button-link {
@@ -45,6 +48,9 @@
         font-size: 13px;
         padding:0.5rem 0.5rem !important;
     }
+}
+.style-table-locales {
+    @extend .p-table-style;
 }
 .form-grid {
     .p-dropdown {

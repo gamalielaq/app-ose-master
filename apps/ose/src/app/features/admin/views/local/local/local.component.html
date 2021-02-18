@@ -1,0 +1,74 @@
+<div class="ui-fluid text-center">
+    <div class="p-field">
+        <h1>Locales</h1>
+        <div class="p-d-flex p-jc-end p-mb-4">
+            <button
+            (click)="add()"
+            pButton icon="pi pi-plus" type="submit" label="Nuevo local"></button>
+        </div>
+        
+        <p-table [value]="local" [scrollable]="true" styleClass="style-table-locales">
+            <ng-template pTemplate="colgroup">
+                <colgroup>
+                    <col style="width: 80px" />
+                    <col style="width: 130px" />
+                    <col style="width: 80px" />
+                    <col style="width: 120px" />
+                    <col style="width: 80px" />
+                    <col style="width: 80px" />
+                    <col style="width: 130px" />
+                    <col style="width: 280Px" />
+                    <col style="width: 100px" />
+                    <col style="width: 100px" />
+                </colgroup>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>CÓDIGO</th>
+                    <th>DESCRIPCIÓN</th>
+                    <th>UBIGEO (INEI)</th>
+                    <th>DEPARTAMENTO</th>
+                    <th>PROVINCIA</th>
+                    <th>DISTRITO</th>
+                    <th>DIRECCIÓN EXACTA	</th>
+                    <th>TIPOS DE COMPROBANTES Y SERIES ASIGNADOS</th>
+                    <th>OFFLINE</th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-local>
+                <tr>
+                    <td>{{local.codigo}}</td>
+                    <td>
+                        <div>
+                            {{local.descripcion.name}}
+                            <p><strong>{{local.descripcion.cod}}</strong></p>
+                        </div>
+                    </td>
+                    <td>{{local.ubigeo}}</td>
+                    <td>{{local.departamento}}</td>
+                    <td>{{local.provinvia}}</td>
+                    <td>{{local.distrito}}</td>
+                    <td>{{local.direccion}}</td>
+                    <td>
+                        <div class="p-d-flex p-jc-between" *ngFor="let tipo of local.tipoComprovante">
+                            <span>{{tipo.name}}</span><span>{{tipo.cod}}</span>
+                        </div>
+                    </td>
+                    <td class="text-aling-center">{{local.offline}}</td>
+                    <td>
+                        <button
+                        (click)="edit()"
+                        pButton type="button"
+                            class="p-button-raised p-button-rounded p-button-outlined p-button-info p-mr-2"
+                            icon="pi pi-pencil">
+                        </button>
+                        <button pButton type="button"
+                            class="p-button-raised p-button-rounded p-button-outlined p-button-danger"
+                            icon="pi pi-trash"></button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

@@ -1,0 +1,157 @@
+<div class="p-col-12 p-d-flex p-jc-between p-ai-center">
+    <h1>{{labelolcal}}</h1>
+    <button (click)="_location.back()" pButton type="button" icon="pi pi-arrow-left" label="Regresar"></button>
+</div>
+<hr>
+<div class="p-col-12 p-d-flex p-jc-between p-ai-center">
+    <span class="text-aling-center w-70 p-mr-auto p-ml-auto">
+        La serie debe empezar con la letra F para FACTURAS y NOTAS asociadas, B para BOLETAS DE VENTAS y sus NOTAS
+        asociadas, R para comprobantes de RETENCIÓN, P para comprobantes de PERCEPCIÓN
+    </span>
+</div>
+
+<div class="p-fluid p-formgrid p-grid">
+    <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-3 p-xl-2">
+        <label>Código!</label>
+        <input type="text" pInputText />
+    </div>
+    <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-3 p-xl-8">
+        <label>Nombre corto!</label>
+        <input type="text" pInputText />
+    </div>
+    <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-3 p-xl-2">
+        <label>Código Sunat!</label>
+        <input type="text" pInputText />
+    </div>
+    <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-6 p-xl-3">
+        <label>Ubigeo INEI (Igual a la SUNAT, DISTRITO)!</label>
+        <p-dropdown [options]="ubigeo" [(ngModel)]="selectUBigeo" optionLabel="name" [filter]="true" filterBy="name"
+            [showClear]="true" placeholder="Filtrar por tipo">
+            <ng-template let-ubigeo pTemplate="selectedItem">
+                <div *ngIf="selectUBigeo">
+                    <div>{{ubigeo.name}}</div>
+                </div>
+            </ng-template>
+            <ng-template let-ubigeo pTemplate="item">
+                <div>
+                    <div>{{ubigeo.name}}</div>
+                </div>
+            </ng-template>
+        </p-dropdown>
+    </div>
+    <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-6 p-xl-3">
+        <label>Departamento!</label>
+        <p-dropdown [options]="ubigeo" [(ngModel)]="selectUBigeo" optionLabel="name" [filter]="true" filterBy="name"
+            [showClear]="true" placeholder="Filtrar por tipo">
+            <ng-template let-ubigeo pTemplate="selectedItem">
+                <div *ngIf="selectUBigeo">
+                    <div>{{ubigeo.name}}</div>
+                </div>
+            </ng-template>
+            <ng-template let-ubigeo pTemplate="item">
+                <div>
+                    <div>{{ubigeo.name}}</div>
+                </div>
+            </ng-template>
+        </p-dropdown>
+    </div>
+    <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-6 p-xl-3">
+        <label>Provincia!</label>
+        <p-dropdown [options]="ubigeo" [(ngModel)]="selectUBigeo" optionLabel="name" [filter]="true" filterBy="name"
+            [showClear]="true" placeholder="Filtrar por tipo">
+            <ng-template let-ubigeo pTemplate="selectedItem">
+                <div *ngIf="selectUBigeo">
+                    <div>{{ubigeo.name}}</div>
+                </div>
+            </ng-template>
+            <ng-template let-ubigeo pTemplate="item">
+                <div>
+                    <div>{{ubigeo.name}}</div>
+                </div>
+            </ng-template>
+        </p-dropdown>
+    </div>
+    <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-6 p-xl-3">
+        <label>Distrito !</label>
+        <p-dropdown [options]="ubigeo" [(ngModel)]="selectUBigeo" optionLabel="name" [filter]="true" filterBy="name"
+            [showClear]="true" placeholder="Filtrar por tipo">
+            <ng-template let-ubigeo pTemplate="selectedItem">
+                <div *ngIf="selectUBigeo">
+                    <div>{{ubigeo.name}}</div>
+                </div>
+            </ng-template>
+            <ng-template let-ubigeo pTemplate="item">
+                <div>
+                    <div>{{ubigeo.name}}</div>
+                </div>
+            </ng-template>
+        </p-dropdown>
+    </div>
+    <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-12 p-xl-12">
+        <label>Dirección exacta </label>
+        <input type="text" pInputText />
+    </div>
+</div>
+
+<div class="p-fluid p-formgrid p-mb-3">
+    <div class="p-card p-col p-p-3">
+        <h1 class="text-aling-center w-100"><strong>Documentos y series</strong></h1>
+        <div class="p-grid">
+            <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-3 p-xl-4">
+                <label>Documento</label>
+                <p-dropdown [options]="documento" [(ngModel)]="selectedocumento" optionLabel="name" optionValue="code">
+                </p-dropdown>
+            </div>
+            <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-3 p-xl-4">
+                <label>Serie</label>
+                <input type="text" pInputText />
+            </div>
+            <div class="p-field p-col-6 p-md-6 p-md-6 p-lg-3 p-xl-2">
+                <label>Contingencia?</label>
+                <div class="p-d-flex p-ai-center">
+                    <span class="p-mr-3"><strong>SI</strong></span>
+                    <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch><span class="p-ml-3"><strong>NO</strong></span>
+                </div>
+            </div>
+            <div class="p-field p-d-flex p-ai-end p-col-6 p-md-6 p-md-6 p-lg-3 p-xl-2">
+                <button class="p-button-rounded p-button-danger p-ml-1 p-mr-2 w-100" pButton type="button" icon="pi "
+                    label="Eliminar"></button>
+            </div>
+        </div>
+        <div class="p-field p-col-12 p-md-12">
+            <button class="p-button-rounded p-button-secondary w-100" pButton type="button" icon="pi "
+                label="Agregar serie"></button>
+        </div>
+    </div>
+
+    <div class="p-card p-col p-p-3">
+        <h1 class="text-aling-center w-100"><strong>Usuario asignado</strong></h1>
+        <div class="p-grid">
+            <div class="p-field p-col-12 p-md-6">
+                <label>Usuario asignado</label>
+                <p-dropdown [options]="ubigeo" [(ngModel)]="selectUBigeo" optionLabel="name" [filter]="true" filterBy="name"
+                [showClear]="true" placeholder="Filtrar por tipo">
+                <ng-template let-ubigeo pTemplate="selectedItem">
+                    <div *ngIf="selectUBigeo">
+                        <div>{{ubigeo.name}}</div>
+                    </div>
+                </ng-template>
+                <ng-template let-ubigeo pTemplate="item">
+                    <div>
+                        <div>{{ubigeo.name}}</div>
+                    </div>
+                </ng-template>
+            </p-dropdown>
+            </div>
+            <div class="p-field p-d-flex p-ai-end p-col-12 p-md-6">
+                <button class="p-button-rounded p-button-danger p-ml-1 p-mr-2 w-100" pButton type="button" icon="pi "
+                label="Eliminar"></button>
+            </div>
+    </div>
+    <div class="p-field p-col-12 p-md-12 ">
+        <button class="p-button-rounded p-button-secondary w-100" pButton type="button" icon="pi "label="Agregar Usuario"></button>
+    </div>
+</div><br>
+<div class="p-field p-col-12 p-md-12">
+    <button class="p-button-rounded w-100" pButton type="button" icon="pi "label="Actualizar Local"></button>
+</div>

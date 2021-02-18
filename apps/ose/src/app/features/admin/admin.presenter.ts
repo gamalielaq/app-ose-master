@@ -31,6 +31,6 @@ export class AdminPresenter {
     { title: 'Locales', icon: 'bookmark', url: '/administrador/local', roles: [ UserRol.admin ] },
     { title: 'Comprovantes', icon: 'bookmark', url: '/administrador/document', roles: [ UserRol.admin ] } ,   
     { title: 'Entidades', icon: 'bookmark', url: '/administrador/entiti', roles: [ UserRol.admin ] },
-    { title: 'Comprobante', icon: 'bookmark', url: '/administrador/comprobante', roles: [ UserRol.admin ] }        
+    { title: 'Comprobantes', icon: 'bookmark', url: '/administrador/comprobante', roles: [ UserRol.admin ] }        
   ];
 }

@@ -16,7 +16,7 @@ import { UsersComponent } from './views/users/users.component';
 import { UsersEditComponent } from './views/users-edit/users-edit.component';
 import { ReceiptComponent } from './views/receipt/receipt.component';
 import { ConfigurationComponent } from './views/configuration/configuration.component';
-import { LocalComponent } from './views/local/local.component';
+import { LocalComponent } from './views/local/local/local.component';
 import { DocumentComponent } from './views/document/document.component';
 import { ApiComponent } from './views/api/api.component';
 
@@ -25,7 +25,8 @@ import { MessageService } from 'primeng/api';
 import { EntitiComponent } from './views/entiti/entiti/entiti.component'
 import { EntitiListComponent } from './views/entiti/entiti-list/entiti-list.component';
 import { ComprobanteComponent } from './views/comprobante/comprobante/comprobante.component';
-import { ElectronicReceiptComponent } from './views/comprobante/electronic-receipt/electronic-receipt.component'
+import { ElectronicReceiptComponent } from './views/comprobante/electronic-receipt/electronic-receipt.component';
+import { LocalCreateComponent } from './views/local/local-create/local-create.component'
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { ElectronicReceiptComponent } from './views/comprobante/electronic-recei
     EntitiComponent,
     EntitiListComponent,
     ComprobanteComponent,
-    ElectronicReceiptComponent
+    ElectronicReceiptComponent,
+    LocalCreateComponent
   ],
   imports: [
     CommonModule,
