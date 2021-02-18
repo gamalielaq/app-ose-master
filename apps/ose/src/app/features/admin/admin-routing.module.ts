@@ -20,6 +20,7 @@ import { ApiComponent } from './views/api/api.component';
 import { EntitiComponent } from './views/entiti/entiti/entiti.component';
 import { EntitiListComponent } from './views/entiti/entiti-list/entiti-list.component';
 import { ComprobanteComponent } from './views/comprobante/comprobante/comprobante.component';
+import { ElectronicReceiptComponent } from './views/comprobante/electronic-receipt/electronic-receipt.component';
 
 const routes: Routes = [
   {
@@ -62,6 +63,9 @@ const routes: Routes = [
       },
       {
         path: 'comprobante/:id', component: EntitiComponent
+      },
+      {
+        path: 'comprobante/emit/:id', component: ElectronicReceiptComponent
       },
       {
         path: 'document', component: DocumentComponent

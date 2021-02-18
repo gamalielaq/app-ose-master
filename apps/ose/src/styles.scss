@@ -5,6 +5,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "~@angular/material/theming";
+@import "assets/scss/custom.scss";
 // @import "~bootstrap";
 
 $mat-dark-primary: mat-palette($mat-grey, 900);
@@ -21,54 +22,4 @@ $mat-dark-theme: mat-dark-theme($mat-dark-primary, $mat-dark-secondary);
     right: 0;
     bottom: 0;
     overflow-y: scroll;
-}s
-.p-datatable .p-datatable-tbody > tr > td {
-    padding: 0.5rem !important;
-}
-.p-table-style {
-    table > tbody > tr > td {
-        font-size: 13px;
-        .p-button-link {
-            font-size: 13px;
-        }
-    }
-}
-.style-comprobante {
-    .p-datatable-thead > tr > th {
-        font-size: 13px;
-        padding:0rem 0.5rem !important;
-        // text-align: center;
-        // text-align: center !important;
-    }
-
-    .p-datatable-thead > tr > th { 
-        // .rotate {
-        //     position: absolute;
-        //     // top: -45px;
-        //     transform-origin: 0 0;
-        //     transform: rotate(270deg);
-        //     bottom: 0;
-        // }
-    }
-
-    
-
-    table > tbody > tr > td {
-        font-size: 13px;
-        padding:0.5rem 0.5rem !important;
-    }
-}
-.w-100 {
-    width: 100%;
-}
-.form-grid {
-    .p-dropdown {
-        width: 100%;
-    }
-}
-.p-0 {
-    padding: 0px !important;
-}
-.text-aling-center {
-    text-align: center !important;
 }

@@ -24,7 +24,8 @@ import { SharedModule } from '../../shared/shared.module';
 import { MessageService } from 'primeng/api';
 import { EntitiComponent } from './views/entiti/entiti/entiti.component'
 import { EntitiListComponent } from './views/entiti/entiti-list/entiti-list.component';
-import { ComprobanteComponent } from './views/comprobante/comprobante/comprobante.component'
+import { ComprobanteComponent } from './views/comprobante/comprobante/comprobante.component';
+import { ElectronicReceiptComponent } from './views/comprobante/electronic-receipt/electronic-receipt.component'
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { ComprobanteComponent } from './views/comprobante/comprobante/comprobant
     ApiComponent,
     EntitiComponent,
     EntitiListComponent,
-    ComprobanteComponent
+    ComprobanteComponent,
+    ElectronicReceiptComponent
   ],
   imports: [
     CommonModule,

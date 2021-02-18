@@ -1,0 +1,58 @@
+.w-50 {
+    width: 50%;
+}
+.w-70 {
+    width: 70%;
+}
+.style-menu {
+    width: 100% !important;
+}
+.w-100 {
+    width: 100%;
+}
+.p-0 {
+    padding: 0px !important;
+}
+.fz-12 {
+    font-size: 12px;
+}
+.fz-13 {
+    font-size: 13px;
+}
+.text-aling-center {
+    text-align: center !important;
+}
+
+
+// -- Custom ------------------------------
+.p-datatable .p-datatable-tbody > tr > td {
+    padding: 0.5rem !important;
+}
+.p-table-style {
+    table > tbody > tr > td {
+        font-size: 13px;
+        .p-button-link {
+            font-size: 13px;
+        }
+    }
+}
+.style-comprobante {
+    .p-datatable-thead > tr > th {
+        font-size: 13px;
+        padding:0rem 0.5rem !important;
+    }
+    table > tbody > tr > td {
+        font-size: 13px;
+        padding:0.5rem 0.5rem !important;
+    }
+}
+.form-grid {
+    .p-dropdown {
+        width: 100%;
+    }
+}
+.p-button-p-0 {
+    button {
+        padding: 0px;
+    }
+}

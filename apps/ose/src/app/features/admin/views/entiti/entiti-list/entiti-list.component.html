@@ -3,17 +3,18 @@
 <div class="p-grid form-grid ">
     <div class="p-col-12 p-md-6 p-md-6 p-lg-3">
         <button 
+        class="w-100"
         (click)="add()"
-        class="w-100" pButton type="button" label="Nueva entidad"></button>
+        icon="pi pi-plus"
+        pButton type="button" label="Nueva entidad"></button>
     </div>
     <div class="p-col-12 p-md-6 p-md-6 p-lg-3">
-        <button class="w-100" pButton type="button" label="Descargar en EXCEL" icon="pi pi-cloud-download"></button>
-
+        <button class="w-100"
+        pButton type="button" label="Descargar en EXCEL" icon="pi pi-cloud-download"></button>
     </div>
     <div class="p-col-12 p-md-6 p-md-6 p-lg-3">
-        <button class="w-100" pButton type="button" label="Subir entidades desde EXCEL" icon="pi pi-cloud-upload">
-        </button>
-
+        <button
+        class="w-100" pButton type="button" label="Subir entidades desde EXCEL" icon="pi pi-cloud-upload"></button>
     </div>
     <div class="p-col-12 p-md-6 p-md-6 p-lg-3">
         <p-dropdown [options]="entities" [(ngModel)]="selectedEntitie" optionLabel="name" [filter]="true"

@@ -1,0 +1,310 @@
+<br>
+<h1>Emitir comprobante electrónico</h1><br>
+<div class="p-fluid p-formgrid p-grid">
+    <div class="p-col-12 p-md-6 p-md-12 p-lg-4 p-xl-3 p-field form-grid">
+        <label>Cliente</label>
+        <p-dropdown class="" [options]="filterCliente" [(ngModel)]="selectCliente" optionLabel="name" [filter]="true"
+            filterBy="name" [showClear]="true" placeholder="Buscar Cliente">
+            <ng-template let-cliente pTemplate="selectedItem">
+                <div *ngIf="selectCliente">
+                    <div>{{cliente.name}}</div>
+                </div>
+            </ng-template>
+            <ng-template let-cliente pTemplate="item">
+                <div>
+                    <div>{{cliente.name}}</div>
+                </div>
+            </ng-template>
+        </p-dropdown>
+    </div>
+    <div class="p-field p-col-12 p-md-6 p-md-12 p-lg-3 p-xl-2 p-d-flex p-ai-end">
+        <button class="p-button-rounded p-ml-1 p-mr-2 w-100" pButton type="button" icon="pi "
+            label="Nuevo Cliente"></button>
+    </div>
+    <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-3 p-xl-2">
+        <label>Tipo documento</label>
+        <p-dropdown [options]="filterCliente" [(ngModel)]="selectCliente" optionLabel="name" [filter]="true"
+            filterBy="name" [showClear]="true" placeholder="Filtrar por tipo">
+            <ng-template let-cliente pTemplate="selectedItem">
+                <div *ngIf="selectCliente">
+                    <div>{{cliente.name}}</div>
+                </div>
+            </ng-template>
+            <ng-template let-cliente pTemplate="item">
+                <div>
+                    <div>{{cliente.name}}</div>
+                </div>
+            </ng-template>
+        </p-dropdown>
+    </div>
+    <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-2 p-xl-1">
+        <label>Serie</label>
+        <p-dropdown [options]="serie" [(ngModel)]="selectedSerieCode" optionLabel="name" optionValue="code">
+        </p-dropdown>
+    </div>
+    <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-3 p-xl-2">
+        <label>Número (Referencial)</label>
+        <input type="text" pInputText />
+    </div>
+    <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-3 p-xl-2">
+        <label>Fecha de Emision</label>
+        <span class="p-input-icon-right">
+            <p-calendar class="style-datepicker" dateFormat="dd/mm/yy" id="dataFin" [showIcon]="true" inputId="icon">
+            </p-calendar>
+        </span>
+    </div>
+    <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-3 p-xl-2">
+        <label>Tipo de operación</label>
+        <p-dropdown [options]="serie" [(ngModel)]="selectedSerieCode" optionLabel="name" optionValue="code">
+        </p-dropdown>
+    </div>
+    <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-3 p-xl-1">
+        <label>Moneda</label>
+        <p-dropdown [options]="moneda" [(ngModel)]="selectedMoedaCode" optionLabel="name" optionValue="code">
+        </p-dropdown>
+    </div>
+    <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-3 p-xl-2">
+        <label>Fecha de Venc.</label>
+        <span class="p-input-icon-right">
+            <p-calendar class="style-datepicker" dateFormat="dd/mm/yy" id="dataFin" [showIcon]="true" inputId="icon">
+            </p-calendar>
+        </span>
+    </div>
+
+    <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-2">
+        <label>Pagado?</label>
+        <div class="p-d-flex p-ai-center">
+            <span class="p-mr-2">Si</span>
+            <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch><span class="p-ml-2">No</span>
+        </div>
+    </div>
+</div>
+
+<div class="p-fluid  p-formgrid p-mt-2">
+    <div class="p-card p-grid p-p-3">
+        <div class="p-field p-col-12 p-md-6 p-lg-4 p-xl-3">
+            <label>Producto - Servicio (CATÁLOGO)</label>
+            <div class="p-d-flex p-ai-center">
+                <p-dropdown [options]="filterCliente" [(ngModel)]="selectCliente" optionLabel="name" [filter]="true"
+                    filterBy="name" [showClear]="true" placeholder="Buscar...">
+                    <ng-template let-cliente pTemplate="selectedItem">
+                        <div *ngIf="selectCliente">
+                            <div>{{cliente.name}}</div>
+                        </div>
+                    </ng-template>
+                    <ng-template let-cliente pTemplate="item">
+                        <div>
+                            <div>{{cliente.name}}</div>
+                        </div>
+                    </ng-template>
+                </p-dropdown>
+            </div>
+        </div>
+        <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-4 p-xl-3">
+            <label>Detalle adicional</label>
+            <div class="p-d-flex p-ai-center">
+                <input type="text" pInputText />
+            </div>
+        </div>
+        <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-2 p-xl-1">
+            <label>Cantidad</label>
+            <div class="p-d-flex p-ai-center">
+                <input type="text" pInputText />
+            </div>
+        </div>
+        <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-2 p-xl-1">
+            <label>Tipo IGV</label>
+            <div class="p-d-flex p-ai-center">
+                <p-dropdown [options]="moneda" [(ngModel)]="selectedMoedaCode" optionLabel="name" optionValue="code">
+                </p-dropdown>
+            </div>
+        </div>
+        <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-2 p-xl-1">
+            <label>VALOR Unit.</label>
+            <div class="p-d-flex p-ai-center">
+                <input type="text" pInputText />
+            </div>
+        </div>
+        <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-2 p-xl-1">
+            <label>Subtotal.</label>
+            <div class="p-d-flex p-ai-center">
+                <input type="text" pInputText />
+            </div>
+        </div>
+        <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-2 p-xl-1">
+            <label>Total.</label>
+            <div class="p-d-flex p-ai-center">
+                <input type="text" pInputText />
+            </div>
+        </div>
+        <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-3 p-xl-1 p-d-flex p-ai-end">
+            <button pButton type="button"
+                class="p-button-raised p-button-rounded p-button-outlined p-button-info p-mr-2" icon="pi pi-plus">
+            </button>
+
+            <button pButton type="button" class="p-button-raised p-button-rounded p-button-outlined p-button-danger"
+                icon="pi pi-trash"></button>
+        </div>
+        <div class="p-grid p-col-12 p-md-12 p-xl-3">
+            <div class="p-col-12 p-md-5 p-xl-12">
+                <button class="p-button-rounded p-button-help" pButton type="button" icon="pi "
+                    label="Agregar linia o item"></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="p-fluid p-grid p-formgrid p-mt-3">
+    <div class="p-col-12 p-md-8 p-d-flex p-flex-column p-p-0 p-pr-md-1">
+        <div class="p-card p-d-flex  p-flex-md-row p-jc-between p-p-3 p-mb-3 fz-13">
+            <button pButton type="button" label="Guía de remisión" class="p-button-link"></button>
+            <button pButton type="button" label="Órden de compra/servicio" class="p-button-link"></button>
+            <button pButton type="button" label="Placa de vehículo" class="p-button-link"></button>
+            <button pButton type="button" label="Condiciones de pago" class="p-button-link"></button>
+            <button pButton type="button" label="Formato de PDF" class="p-button-link"></button>
+        </div>
+        <div class="p-card p-p-3 p-mb-3">
+            <div class="p-field">
+                <label>Observaciones</label>
+                <div class="p-d-flex p-ai-center">
+                    <textarea pInputTextarea></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="p-card p-d-flex p-jc-lg-between p-p-3 p-mb-3">
+            <div>
+                <label>¿Detracción?</label>
+                <div class="p-d-flex p-ai-center">
+                    <span class="p-mr-2">Si</span>
+                    <p-inputSwitch [(ngModel)]="checked1"></p-inputSwitch><span class="p-ml-2">No</span>
+                </div>
+            </div>
+            <div>
+                <label>¿Bienes Región Selva?</label>
+                <div class="p-d-flex p-ai-center">
+                    <span class="p-mr-2">Si</span>
+                    <p-inputSwitch [(ngModel)]="checked2"></p-inputSwitch><span class="p-ml-2">No</span>
+                </div>
+            </div>
+            <div>
+                <label>¿Servicios Región Selva?</label>
+                <div class="p-d-flex p-ai-center">
+                    <span class="p-mr-2">Si</span>
+                    <p-inputSwitch [(ngModel)]="checked3"></p-inputSwitch><span class="p-ml-2">No</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-col-12 p-md-4 p-p-0 p-pl-md-1">
+        <div class="p-card p-p-3">
+            <div class="p-fluid form-cal">
+                <div class="p-grid p-mb-3 p-mb-md-2">
+                    <label for="firstname" class="p-col-12 2 p-md-6 p-mb- p-mb-md-0">% Descuento Global</label>
+                    <div class="p-col-12 p-md-6">
+                        <input id="firstname" type="text" pInputText>
+                    </div>
+                </div>
+                <div class="p-grid p-mb-3 p-mb-md-2">
+                    <label for="lastname" class="p-col-12 p-md-6 p-mb-2 p-mb-md-0">Descuento Global (-)</label>
+                    <div class="p-col-12 p-md-6">
+                        <input id="lastname" type="text" pInputText>
+                    </div>
+                </div>
+                <div class="p-grid p-mb-3 p-mb-md-2">
+                    <label for="lastname" class="p-col-12 p-md-6 p-mb-2 p-mb-md-0">Descuento por Item (-)</label>
+                    <div class="p-col-12 p-md-6">
+                        <input id="lastname" type="text" pInputText>
+                    </div>
+                </div>
+                <div class="p-grid p-mb-3 p-mb-md-2">
+                    <label for="lastname" class="p-col-12 p-md-6 p-mb-2 p-mb-md-0">Descuento Total (-)</label>
+                    <div class="p-col-12 p-md-6">
+                        <input id="lastname" type="text" pInputText>
+                    </div>
+                </div>
+                <div class="p-grid p-mb-3 p-mb-md-2">
+                    <label for="lastname" class="p-col-12 p-md-6 p-mb-2 p-mb-md-0">Anticipo (-)</label>
+                    <div class="p-col-12 p-md-6">
+                        <input id="lastname" type="text" pInputText>
+                    </div>
+                </div>
+                <div class="p-grid p-mb-3 p-mb-md-2">
+                    <label for="lastname" class="p-col-12 p-md-6 p-mb-2 p-mb-md-0">Exonerada</label>
+                    <div class="p-col-12 p-md-6">
+                        <input id="lastname" type="text" pInputText>
+                    </div>
+                </div>
+                <div class="p-grid p-mb-3 p-mb-md-2">
+                    <label for="lastname" class="p-col-12 p-md-6 p-mb-2 p-mb-md-0">Inafecta</label>
+                    <div class="p-col-12 p-md-6">
+                        <input id="lastname" type="text" pInputText>
+                    </div>
+                </div>
+                <div class="p-grid p-mb-3 p-mb-md-2">
+                    <label for="lastname" class="p-col-12 p-md-6 p-mb-2 p-mb-md-0">Gravada</label>
+                    <div class="p-col-12 p-md-6">
+                        <input id="lastname" type="text" pInputText>
+                    </div>
+                </div>
+                <div class="p-grid p-mb-3 p-mb-md-2">
+                    <label for="lastname" class="p-col-12 p-md-6 p-mb-2 p-mb-md-0">IGV</label>
+                    <div class="p-col-12 p-md-6">
+                        <input id="lastname" type="text" pInputText>
+                    </div>
+                </div>
+                <div class="p-grid p-mb-3 p-mb-md-2">
+                    <label for="lastname" class="p-col-12 p-md-6 p-mb-2 p-mb-md-0">Gratuita</label>
+                    <div class="p-col-12 p-md-6">
+                        <input id="lastname" type="text" pInputText>
+                    </div>
+                </div>
+                <div class="p-grid p-mb-3 p-mb-md-2">
+                    <label for="lastname" class="p-col-12 p-md-6 p-mb-2 p-mb-md-0">IOtros Cargos
+                        GV</label>
+                    <div class="p-col-12 p-md-6">
+                        <input id="lastname" type="text" pInputText>
+                    </div>
+                </div>
+                <div class="p-grid p-mb-3 p-mb-md-2">
+                    <label for="lastname" class="p-col-12 p-md-6 p-mb-2 p-mb-md-0">ICBPER</label>
+                    <div class="p-col-12 p-md-6">
+                        <input id="lastname" type="text" pInputText>
+                    </div>
+                </div>
+                <div class="p-grid p-mb-3 p-mb-md-2">
+                    <label for="lastname" class="p-col-12 p-md-6 p-mb-2 p-mb-md-0">Total</label>
+                    <div class="p-col-12 p-md-6">
+                        <input id="lastname" type="text" pInputText>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="p-fluid p-grid p-mt-3">
+    <div class="p-col-6">
+        <button class="p-button-rounded p-button-secondary" pButton type="button" icon="pi "
+            label="Guardar Como Borrador"></button>
+    </div>
+    <div class="p-col-6">
+        <button class="p-button-rounded p-button-info" pButton type="button" icon="pi "
+            label="Generar Comprobante"></button>
+    </div>
+</div>
+
+
+<!-- <div class="p-d-flex p-flex-column">
+    <div class="p-col p-card p-mb-3">
+        sss
+    </div>
+    <div class="p-card">
+        ss
+    </div>
+</div>
+</div>
+<div class="p-col-12 p-md-6 p-lg-5">
+<div class="p-grid p-d-flex p-flex-column">
+    <div class="p-col p-card">">
+       ss
+    </div>
+</div> -->

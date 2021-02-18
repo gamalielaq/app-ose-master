@@ -3,7 +3,7 @@
   <div class="p-field">
     <h1>Usuarios</h1>
     <!-- <p-messages [(value)]="msgs"></p-messages> -->
-    <button pButton type="submit" id="user-btn" (click)="newUser(null, 'add')" label="Nuevo usuario"></button>
+    <button pButton type="submit" (click)="newUser(null, 'add')" label="Nuevo usuario"></button>
     <hr>
     <p-table
     [value]="users"

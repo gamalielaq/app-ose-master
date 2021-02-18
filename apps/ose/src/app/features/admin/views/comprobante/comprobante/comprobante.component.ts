@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { Period, Filter } from '../../../../../core/models/receipt';
 import { ReceiptService } from '../../../../../core/service/receipt.service';
@@ -22,7 +23,8 @@ export class ComprobanteComponent implements OnInit {
 
 
   constructor(
-    private _receiptService: ReceiptService
+    private _receiptService: ReceiptService,
+    private _router : Router
   ) { }
 
   ngOnInit(): void {
@@ -77,35 +79,30 @@ export class ComprobanteComponent implements OnInit {
     ]
 
     this.items = [{
-      label: 'Options',
+      label: '---Selecciona una opcion---',  
+      icon: '',
       items: [{
-          label: 'Emitir Factura Electrónica',
-          icon: 'pi pi-refresh',
+          label: 'Emitir Factura Electrónica',  
+          icon: '',
           command: () => {
-              
+            console.log('me diste click');
+            
+            this._router.navigate(['administrador/comprobante/emit/receip']);
           }
       },
       {
           label: 'Emitir Boleta de Venta Electrónica',
-          icon: 'pi pi-times',
+          icon: '',
           command: () => {
-              
           }
-      }
-      ]},
+      },
       {
-          label: 'Emitir Nota de Crédito Electrónica',
-          items: [{
-              label: 'Angular',
-              icon: 'pi pi-external-link',
-              url: 'http://angular.io'
-          },
-          {
-              label: 'Router',
-              icon: 'pi pi-upload',
-              routerLink: '/fileupload'
-          }
-      ]}
+        label: 'Emitir Boleta de Venta Electrónica',
+        icon: '',
+        command: () => {
+        }
+    }
+      ]},
   ];
 
 

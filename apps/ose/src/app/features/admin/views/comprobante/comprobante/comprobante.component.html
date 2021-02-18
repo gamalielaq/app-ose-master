@@ -2,17 +2,19 @@
 <h1>Comprobantes</h1><br>
 <div class="p-grid form-grid ">
     <div class="p-col-12 p-md-6 p-md-6 p-lg-3 p-field p-d-flex p-ai-end">
-        <button class="w-100" type="button" pButton icon="pi pi-plus" label="Emitir Comprobante"
+        <div class="panel w-100">
+            <button #btnapend class="w-100" type="button" pButton icon="pi pi-plus" label="Emitir Comprobante"
             (click)="menu.toggle($event)">
         </button>
-        <p-menu appendTo="menu" #menu [popup]="true" [model]="items"></p-menu>
+        <p-menu class="w-100" styleClass="style-menu" appendTo="btnapend" #menu [popup]="true" [model]="items"></p-menu>
+        </div>
     </div>
     <div class="p-col-12 p-md-6 p-md-6 p-lg-4">
         <div class="p-fluid p-formgrid p-grid">
             <div class="p-col-12 p-sm-12 p-lg-12 p-d-flex p-flex-column p-flex-md-row">
                 <div class="p-field p-col p-0">
                     <label>Fecha Inicio</label>
-                    <div class="p-d-flex p-mr-3">
+                    <div class="p-d-flex p-mr-sm-3">
                         <span class="p-input-icon-right">
                             <p-calendar class="style-datepicker" dateFormat="dd/mm/yy" id="dataInicio" [showIcon]="true"
                                 inputId="icon">
@@ -108,13 +110,11 @@
                     <col style="width: 50px" />
                     <col style="width: 100px" />
                     <col style="width: 200px" />
-
                     <col style="width: 50px" />
                     <col style="width: 50px" />
                     <col style="width: 70px" />
                     <col style="width: 70px" />
                     <col style="width: 70px" />
-
                     <col style="width: 70px" />
                     <col style="width: 70px" />
                     <col style="width: 70px" />
@@ -159,12 +159,10 @@
                     <td>{{doc.fecha}}</td>
                     <td>{{doc.tipo}}</td>
                     <td>{{doc.serie}}</td>
-
                     <td>{{doc.num}}</td>
                     <td>{{doc.documento}}</td>
                     <td>{{doc.denominacion}}</td>
                     <td>{{doc.m}}</td>
-
                     <td>{{doc.tc}}</td>
                     <td>{{doc.total}}</td>
                     <td>{{doc.totalGratuita}}</td>
@@ -172,9 +170,7 @@
                     <td>{{doc.enviado}}</td>
                     <td>{{doc.leido}}</td>
                     <td>
-
                         <span class="p-badge p-badge-info">{{doc.imprimir}}</span>
-
                     </td>
                     <td>
                         <span class="p-badge p-badge-danger">{{doc.pdf}}</span>
