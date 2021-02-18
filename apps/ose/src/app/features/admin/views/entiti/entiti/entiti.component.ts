@@ -31,11 +31,11 @@ export class EntitiComponent implements OnInit {
 
   ngOnInit(): void {
     this.cities = [
-      {name: 'New York', code: 'NY'},
-      {name: 'Rome', code: 'RM'},
-      {name: 'London', code: 'LDN'},
-      {name: 'Istanbul', code: 'IST'},
-      {name: 'Paris', code: 'PRS'}
+      {name: '6 RUC - REGISTRO ÚNICO DE CONTRIBUYENTE', code: 'co1'},
+      {name: '1 DNI - DOC. NACIONAL DE IDENTIDAD', code: 'co2'},
+      {name: '- VARIOS - VENTAS MENORES A S/.700.00 Y OTROS', code: 'co3'},
+      {name: '4 CARNET DE EXTRANJERÍA', code: 'co4'},
+      {name: '7 PASAPORTE', code: 'co5'},
   ];
   }
 

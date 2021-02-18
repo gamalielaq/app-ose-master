@@ -26,7 +26,9 @@ import { EntitiComponent } from './views/entiti/entiti/entiti.component'
 import { EntitiListComponent } from './views/entiti/entiti-list/entiti-list.component';
 import { ComprobanteComponent } from './views/comprobante/comprobante/comprobante.component';
 import { ElectronicReceiptComponent } from './views/comprobante/electronic-receipt/electronic-receipt.component';
-import { LocalCreateComponent } from './views/local/local-create/local-create.component'
+import { LocalCreateComponent } from './views/local/local-create/local-create.component';
+import { CatalogoComponent } from './views/catalogo/catalogo/catalogo.component';
+import { CatalogoCreateComponent } from './views/catalogo/catalogo-create/catalogo-create.component'
 
 
 @NgModule({
@@ -48,7 +50,9 @@ import { LocalCreateComponent } from './views/local/local-create/local-create.co
     EntitiListComponent,
     ComprobanteComponent,
     ElectronicReceiptComponent,
-    LocalCreateComponent
+    LocalCreateComponent,
+    CatalogoComponent,
+    CatalogoCreateComponent
   ],
   imports: [
     CommonModule,

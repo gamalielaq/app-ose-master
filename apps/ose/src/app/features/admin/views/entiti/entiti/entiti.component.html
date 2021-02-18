@@ -5,14 +5,14 @@
 <br>
 <hr><br>
 <div class="p-fluid p-formgrid p-grid">
-    <div class="p-field p-col-12 p-sm-12 p-lg-4 p-d-flex p-flex-column p-flex-md-row">
-        <div class="p-field p-col p-0">
-            <label>Número (RUC, DNI, Etc) </label>
-            <div class="p-d-flex">
-                <input type="text" pInputText />
-                <button class="p-ml-1 p-mr-2" pButton type="button" icon="" label="Extraer"></button>
-            </div>
+    <div class="p-field p-col-12 p-md-6 p-lg-2">
+        <label>Número (RUC, DNI, Etc) </label>
+        <div class="p-d-flex">  
+            <input type="text" pInputText />
+            <button class="p-ml-1 p-mr-2" pButton type="button" icon="" label="Extraer"></button>
         </div>
+    </div>
+    <div class="p-field p-col-12 p-md-6 p-lg-2">
         <div class="p-field p-col p-0">
             <label>Tipo</label>
             <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"></p-dropdown>

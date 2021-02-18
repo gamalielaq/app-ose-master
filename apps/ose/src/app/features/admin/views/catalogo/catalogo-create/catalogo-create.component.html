@@ -1,0 +1,131 @@
+<div class="p-col-12 p-d-flex p-jc-between p-ai-center">
+    <h1>{{labelCatalogo}}</h1>
+    <button (click)="_location.back()" pButton type="button" icon="pi pi-arrow-left" label="Regresar"></button>
+</div>
+<hr>
+<div class="p-fluid p-formgrid p-grid">
+    <div class="p-field p-col-12 p-md-12  p-lg-12 p-xl-12">
+        <label>Categoría</label>
+        <p-dropdown [options]="categoria" [(ngModel)]="selectCategoria" optionLabel="name" [filter]="true"
+            filterBy="name" [showClear]="true" placeholder="Elegir Categoria">
+            <ng-template let-categoria pTemplate="selectedItem">
+                <div *ngIf="selectCategoria">
+                    <div>{{categoria.name}}</div>
+                </div>
+            </ng-template>
+            <ng-template let-categoria pTemplate="item">
+                <div>
+                    <div>{{categoria.name}}</div>
+                </div>
+            </ng-template>
+        </p-dropdown>
+    </div>
+    <div class="p-field p-col-12 p-md-6  p-lg-3 p-xl-3">
+        <label>Tipo!</label>
+        <p-dropdown [options]="categoria" [(ngModel)]="selectCategoria" optionLabel="name" [filter]="true"
+            filterBy="name" [showClear]="true" placeholder="Elegir...">
+            <ng-template let-categoria pTemplate="selectedItem">
+                <div *ngIf="selectCategoria">
+                    <div>{{categoria.name}}</div>
+                </div>
+            </ng-template>
+            <ng-template let-categoria pTemplate="item">
+                <div>
+                    <div>{{categoria.name}}</div>
+                </div>
+            </ng-template>
+        </p-dropdown>
+    </div>
+    <div class="p-field p-col-12 p-md-6  p-lg-3 p-xl-3">
+        <label>Código interno </label>
+        <input type="text" pInputText />
+    </div>
+    <div class="p-field p-col-12 p-md-6  p-lg-6 p-xl-6">
+        <label>Nombre del producto o servicio!</label>
+        <input type="text" pInputText />
+    </div>
+    <div class="p-field p-col-12 p-md-6  p-lg-4 p-xl-4">
+        <label>Código Producto Sunat NUEVO</label>
+        <p-dropdown [options]="categoria" [(ngModel)]="selectCategoria" optionLabel="name" [filter]="true"
+            filterBy="name" [showClear]="true" placeholder="Elegir Categoria">
+            <ng-template let-categoria pTemplate="selectedItem">
+                <div *ngIf="selectCategoria">
+                    <div>{{categoria.name}}</div>
+                </div>
+            </ng-template>
+            <ng-template let-categoria pTemplate="item">
+                <div>
+                    <div>{{categoria.name}}</div>
+                </div>
+            </ng-template>
+        </p-dropdown>
+    </div>
+    <div class="p-field p-col-12 p-md-6  p-lg-4 p-xl-4">
+        <label>Moneda (Referencial)</label>
+        <p-dropdown [options]="categoria" [(ngModel)]="selectCategoria" optionLabel="name" [filter]="true"
+            filterBy="name" [showClear]="true" placeholder="Elegir Modena">
+            <ng-template let-categoria pTemplate="selectedItem">
+                <div *ngIf="selectCategoria">
+                    <div>{{categoria.name}}</div>
+                </div>
+            </ng-template>
+            <ng-template let-categoria pTemplate="item">
+                <div>
+                    <div>{{categoria.name}}</div>
+                </div>
+            </ng-template>
+        </p-dropdown>
+    </div>
+    <div class="p-field p-col-12 p-md-6  p-lg-4 p-xl-4">
+        <label>Tipo de afectación (Opcional)</label>
+        <p-dropdown [options]="categoria" [(ngModel)]="selectCategoria" optionLabel="name" [filter]="true"
+            filterBy="name" [showClear]="true" placeholder="Elegir Tipo">
+            <ng-template let-categoria pTemplate="selectedItem">
+                <div *ngIf="selectCategoria">
+                    <div>{{categoria.name}}</div>
+                </div>
+            </ng-template>
+            <ng-template let-categoria pTemplate="item">
+                <div>
+                    <div>{{categoria.name}}</div>
+                </div>
+            </ng-template>
+        </p-dropdown>
+    </div>
+    <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-6 p-xl-6">
+        <h4 class="p-mb-2 text-aling-center"><strong>Para la VENTA)</strong> (Opcional</h4>
+        <div class="p-card p-p-3">
+            <div class="p-field p-col-12 p-md-12  p-lg-12">
+                <label>VALOR VENTA unitario SIN IGV (al que se venderá)</label>
+                <input type="text" pInputText />
+            </div>
+            <div class="p-field p-col-12 p-md-12  p-lg-12">
+                <label>PRECIO VENTA unitario CON IGV (al que se venderá)</label>
+                <input type="text" pInputText />
+            </div>
+        </div>
+    </div>
+
+    <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-6 p-xl-6">
+        <h4 class="p-mb-2 text-aling-center"><strong>Para la Compra)</strong> (Opcional</h4>
+        <div class="p-card p-p-3">
+            <div class="p-field p-col-12 p-md-12  p-lg-12">
+                <label>Nombre del producto o servicio!</label>
+                <input type="text" pInputText />
+            </div>
+            <div class="p-field p-col-12 p-md-12  p-lg-12">
+                <label>PRECIO COMPRA unitario CON IGV (al que se compró)</label>
+                <input type="text" pInputText />
+            </div>
+        </div>
+    </div>
+    <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-12 p-xl-12">
+        <label>¿Destacado? Para Punto de Venta</label>
+        <div class="p-d-flex p-ai-center">
+            <span class="p-mr-2">No</span><p-inputSwitch [(ngModel)]="checked"></p-inputSwitch><span class="p-ml-2">Si</span>
+        </div>
+    </div>
+</div>
+<div class="p-field p-col-12 p-md-12 p-p-0">
+    <button class="p-button-rounded p-button-help p-button-lg w-100" pButton type="button" icon="pi " label="Crear Producto o servicio"></button>
+</div>

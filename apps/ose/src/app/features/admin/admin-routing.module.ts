@@ -22,6 +22,8 @@ import { EntitiListComponent } from './views/entiti/entiti-list/entiti-list.comp
 import { ComprobanteComponent } from './views/comprobante/comprobante/comprobante.component';
 import { ElectronicReceiptComponent } from './views/comprobante/electronic-receipt/electronic-receipt.component';
 import { LocalCreateComponent } from './views/local/local-create/local-create.component';
+import { CatalogoComponent } from './views/catalogo/catalogo/catalogo.component';
+import { CatalogoCreateComponent } from './views/catalogo/catalogo-create/catalogo-create.component';
 
 const routes: Routes = [
   {
@@ -67,6 +69,12 @@ const routes: Routes = [
       },
       {
         path: 'comprobante/:id', component: EntitiComponent
+      },
+      {
+        path: 'catalogo', component: CatalogoComponent
+      },
+      {
+        path: 'catalogo/:id', component: CatalogoCreateComponent
       },
       {
         path: 'comprobante/emit/:id', component: ElectronicReceiptComponent
