@@ -74,76 +74,78 @@
     <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-2">
         <label>Pagado?</label>
         <div class="p-d-flex p-ai-center">
-            <span class="p-mr-2">Si</span>
-            <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch><span class="p-ml-2">No</span>
+            <span class="p-mr-3"><strong>SI</strong></span>
+            <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch><span class="p-ml-3"><strong>NO</strong></span>
         </div>
     </div>
 </div>
 
 <div class="p-fluid  p-formgrid p-mt-2">
     <div class="p-card p-grid p-p-3">
-        <div class="p-field p-col-12 p-md-6 p-lg-4 p-xl-3">
-            <label>Producto - Servicio (CATÁLOGO)</label>
-            <div class="p-d-flex p-ai-center">
-                <p-dropdown [options]="filterCliente" [(ngModel)]="selectCliente" optionLabel="name" [filter]="true"
-                    filterBy="name" [showClear]="true" placeholder="Buscar...">
-                    <ng-template let-cliente pTemplate="selectedItem">
-                        <div *ngIf="selectCliente">
-                            <div>{{cliente.name}}</div>
-                        </div>
-                    </ng-template>
-                    <ng-template let-cliente pTemplate="item">
-                        <div>
-                            <div>{{cliente.name}}</div>
-                        </div>
-                    </ng-template>
-                </p-dropdown>
+        <div class="p-grid">
+            <div class="p-field p-col-12 p-md-6 p-lg-4 p-xl-3">
+                <label>Producto - Servicio (CATÁLOGO)</label>
+                <div class="p-d-flex p-ai-center">
+                    <p-dropdown [options]="filterCliente" [(ngModel)]="selectCliente" optionLabel="name" [filter]="true"
+                        filterBy="name" [showClear]="true" placeholder="Buscar...">
+                        <ng-template let-cliente pTemplate="selectedItem">
+                            <div *ngIf="selectCliente">
+                                <div>{{cliente.name}}</div>
+                            </div>
+                        </ng-template>
+                        <ng-template let-cliente pTemplate="item">
+                            <div>
+                                <div>{{cliente.name}}</div>
+                            </div>
+                        </ng-template>
+                    </p-dropdown>
+                </div>
             </div>
-        </div>
-        <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-4 p-xl-3">
-            <label>Detalle adicional</label>
-            <div class="p-d-flex p-ai-center">
-                <input type="text" pInputText />
+            <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-4 p-xl-3">
+                <label>Detalle adicional</label>
+                <div class="p-d-flex p-ai-center">
+                    <input type="text" pInputText />
+                </div>
             </div>
-        </div>
-        <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-2 p-xl-1">
-            <label>Cantidad</label>
-            <div class="p-d-flex p-ai-center">
-                <input type="text" pInputText />
+            <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-2 p-xl-1">
+                <label>Cantidad</label>
+                <div class="p-d-flex p-ai-center">
+                    <input type="text" pInputText />
+                </div>
             </div>
-        </div>
-        <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-2 p-xl-1">
-            <label>Tipo IGV</label>
-            <div class="p-d-flex p-ai-center">
-                <p-dropdown [options]="moneda" [(ngModel)]="selectedMoedaCode" optionLabel="name" optionValue="code">
-                </p-dropdown>
+            <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-2 p-xl-1">
+                <label>Tipo IGV</label>
+                <div class="p-d-flex p-ai-center">
+                    <p-dropdown [options]="moneda" [(ngModel)]="selectedMoedaCode" optionLabel="name" optionValue="code">
+                    </p-dropdown>
+                </div>
             </div>
-        </div>
-        <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-2 p-xl-1">
-            <label>VALOR Unit.</label>
-            <div class="p-d-flex p-ai-center">
-                <input type="text" pInputText />
+            <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-2 p-xl-1">
+                <label>VALOR Unit.</label>
+                <div class="p-d-flex p-ai-center">
+                    <input type="text" pInputText />
+                </div>
             </div>
-        </div>
-        <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-2 p-xl-1">
-            <label>Subtotal.</label>
-            <div class="p-d-flex p-ai-center">
-                <input type="text" pInputText />
+            <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-2 p-xl-1">
+                <label>Subtotal.</label>
+                <div class="p-d-flex p-ai-center">
+                    <input type="text" pInputText />
+                </div>
             </div>
-        </div>
-        <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-2 p-xl-1">
-            <label>Total.</label>
-            <div class="p-d-flex p-ai-center">
-                <input type="text" pInputText />
+            <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-2 p-xl-1">
+                <label>Total.</label>
+                <div class="p-d-flex p-ai-center">
+                    <input type="text" pInputText />
+                </div>
             </div>
-        </div>
-        <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-3 p-xl-1 p-d-flex p-ai-end">
-            <button pButton type="button"
-                class="p-button-raised p-button-rounded p-button-outlined p-button-info p-mr-2" icon="pi pi-plus">
-            </button>
-
-            <button pButton type="button" class="p-button-raised p-button-rounded p-button-outlined p-button-danger"
-                icon="pi pi-trash"></button>
+            <div class="p-field p-col-12 p-md-6 p-md-6 p-lg-3 p-xl-1 p-d-flex p-ai-end">
+                <button pButton type="button"
+                    class="p-button-raised p-button-rounded p-button-outlined p-button-info p-mr-2" icon="pi pi-plus">
+                </button>
+    
+                <button pButton type="button" class="p-button-raised p-button-rounded p-button-outlined p-button-danger"
+                    icon="pi pi-trash"></button>
+            </div>
         </div>
         <div class="p-grid p-col-12 p-md-12 p-xl-3">
             <div class="p-col-12 p-md-5 p-xl-12">

@@ -1,35 +1,36 @@
-<form [formGroup]="signInForm" (ngSubmit)="sendData()"  >
-  <p-card [style]="{'width': '400px', 'border-radius': '20px', 'background-color': '#0b5590'}">
-    <div class="ui-fluid ">
-      <div class="p-field text-center">
-          <label for="ID" class="p-col-12 p-md-2 text-white">RUC</label>
-          <div class="p-col-12">
-              <input id="ID" type="text" pInputText formControlName="UsuarioRuc"> 
-          </div>
-      </div>
-      <div class="p-field text-center">
-          <label for="user" class="p-col-12 p-md-2 text-white">USUARIO</label>
-          <div class="p-col-12">
-              <input id="user" type="text" pInputText formControlName="UsuarioNickname"> 
-          </div>
-      </div>
-      <div class="p-field text-center">
-        <label for="pwd" class="p-col-12 p-md-2 text-white">CONTRASEÑA</label>UsuarioPassword
-        <div class="p-col-12">
-            <input id="pwd" type="text" pInputText formControlName="UsuarioPassword"> 
+<form [formGroup]="signInForm" (ngSubmit)="sendData()">
+    <p-card [style]="{'width': '400px', 'border-radius': '20px', 'background-color': '#0b5590'}">
+        <div class="ui-fluid ">
+            <div class="p-field text-center">
+                <label for="ID" class="p-col-12 p-md-2 text-white">RUC</label>
+                <div class="p-col-12">
+                    <input id="ID" type="text" pInputText formControlName="UsuarioRuc">
+                </div>
+            </div>
+            <div class="p-field text-center">
+                <label for="user" class="p-col-12 p-md-2 text-white">USUARIO</label>
+                <div class="p-col-12">
+                    <input id="user" type="text" pInputText formControlName="UsuarioNickname">
+                </div>
+            </div>
+            <div class="p-field text-center">
+                <label for="pwd" class="p-col-12 p-md-2 text-white">CONTRASEÑA</label>UsuarioPassword
+                <div class="p-col-12">
+                    <input id="pwd" type="text" pInputText formControlName="UsuarioPassword">
+                </div>
+            </div>
+            <div class="p-field p-mt-3 p-mb-3">
+                <div class="">
+                    <p-checkbox inputId="binary"></p-checkbox>
+                    <label class="text-white" id="remember-label" for="binary">Recordame</label>
+                </div>
+            </div>
+            <div class="p-field text-center">
+                <div class="p-col-12">
+                    <button pButton [disabled]="signInForm.invalid" type="submit" id="login-btn"
+                        label="INGRESAR"></button>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="p-field" id="remember-field">
-        <div class="p-field-checkbox">
-          <p-checkbox inputId="binary"></p-checkbox>
-          <label class="text-white" id="remember-label" for="binary">Recordame</label>
-        </div>
-      </div>
-      <div class="p-field text-center">
-        <div class="p-col-12">
-          <button pButton [disabled]="signInForm.invalid" type="submit" id="login-btn" label="INGRESAR"></button>
-        </div>        
-      </div>
-    </div>
-  </p-card>
+    </p-card>
 </form>

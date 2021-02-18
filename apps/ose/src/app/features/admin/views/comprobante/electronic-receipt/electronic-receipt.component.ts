@@ -14,7 +14,7 @@ export class ElectronicReceiptComponent implements OnInit {
   selectedMoedaCode:string;
   checked:boolean;
   checked1:boolean;
-  checked2:boolean;
+  checked2:boolean = true;
   checked3:boolean;
   
   constructor() { }
