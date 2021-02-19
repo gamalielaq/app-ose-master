@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuItem } from 'primeng/api';
+import { MenuItem, PrimeNGConfig } from 'primeng/api';
 import { Period, Filter } from '../../../../../core/models/receipt';
 import { ReceiptService } from '../../../../../core/service/receipt.service';
-
 
 @Component({
   selector: 'app-comprobante',
@@ -21,13 +20,19 @@ export class ComprobanteComponent implements OnInit {
   comprobanteiList: any[];
 
 
-
+  currentDate: Date;
+  minDate: Date;
+  maxDate: Date
+  es: object = { closeText: 'Cerrar', prevText: 'Anterior', nextText: 'Siguiente', monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'], monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'], dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'], dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'], dayNamesMin: ['D', 'L', 'M', 'X', 'J', 'V', 'S'], weekHeader: 'Semana', firstDay: 1, isRTL: false, showMonthAfterYear: false, yearSuffix: '', timeOnlyTitle: 'Sólo hora', timeText: 'Tiempo', hourText: 'Hora', minuteText: 'Minuto', secondText: 'Segundo', currentText: 'Fecha actual', ampm: false, month: 'Mes', week: 'Semana', day: 'Día', allDayText: 'Todo el día' };;
   constructor(
     private _receiptService: ReceiptService,
-    private _router : Router
+    private _router: Router,
+    private config: PrimeNGConfig
   ) { }
 
   ngOnInit(): void {
+
+    this.config.setTranslation(this.es)
 
     this.filterTipo = this._receiptService.getFilter();
 
@@ -79,33 +84,31 @@ export class ComprobanteComponent implements OnInit {
     ]
 
     this.items = [{
-      label: '---Selecciona una opcion---',  
+      label: '---Selecciona una opcion---',
       icon: '',
       items: [{
-          label: 'Emitir Factura Electrónica',  
-          icon: '',
-          command: () => {
-            console.log('me diste click');
-            
-            this._router.navigate(['administrador/comprobante/emit/receip']);
-          }
-      },
-      {
-          label: 'Emitir Boleta de Venta Electrónica',
-          icon: '',
-          command: () => {
-          }
+        label: 'Emitir Factura Electrónica',
+        icon: '',
+        command: () => {
+          console.log('me diste click');
+
+          this._router.navigate(['administrador/comprobante/emit/receip']);
+        }
       },
       {
         label: 'Emitir Boleta de Venta Electrónica',
         icon: '',
         command: () => {
         }
-    }
-      ]},
-  ];
-
-
+      },
+      {
+        label: 'Emitir Boleta de Venta Electrónica',
+        icon: '',
+        command: () => {
+        }
+      }
+      ]
+    },
+    ];
   }
-
 }

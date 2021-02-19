@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./configuration.component.scss']
 })
 export class ConfigurationComponent implements OnInit {
-
+  fomatFacturas: any[];
+  selectFormatFactura: string;
+  checked: boolean;
   constructor() { }
 
   ngOnInit() {
+    this.fomatFacturas = [
+      {name: 'A4', cod: 'cod1'},
+      {name: 'A5', cod: 'cod2'},
+      {name: 'Tamaño Ticket', cod: 'cod3'}
+    ]
   }
 
 }

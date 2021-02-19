@@ -55,6 +55,17 @@
 .style-table-locales {
     @extend .p-table-style;
 }
+.style-acordion {
+    .p-accordion-header-link {
+        display: flex;
+        justify-content: space-between;    
+        flex-flow: row-reverse;
+        color: #007BE8 !important;
+        .p-accordion-toggle-icon {
+            font-size: 10px;
+        }
+    }
+}
 .form-grid {
     .p-dropdown {
         width: 100%;

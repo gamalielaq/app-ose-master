@@ -1,68 +1,255 @@
-<p-accordion>
-  <p-accordionTab header="DATOS DEL EMISOR" [style] = "{'color': 'blue'}">
-    <div class="p-grid">
-      <div class="p-col-4">
-        <div class="p-field">
-          <label for="password">RUC!</label>
-          <div class="p-col">
-            <input type="text" disabled id="ruc" value="20108664640" pInputText/>
-          </div>        
+<div class="p-mb-4">
+    <h1>Configuración principal</h1><hr>
+</div>
+
+<p-accordion styleClass="style-acordion" collapseIcon="pi pi-minus" expandIcon="pi pi-plus">
+    <p-accordionTab header="DATOS DEL EMISOR">
+        <div class="p-fluid p-formgrid p-grid">
+            <div class="p-col-12 p-md-4">
+                <div class="p-field">
+                    <label>RUC!</label>
+                    <input type="text" disabled id="ruc" value="20108664640" pInputText />
+                </div>
+            </div>
+            <div class="p-col-12 p-md-8">
+                <div class="p-field">
+                    <label for="confirm-password">Razon social o nombre completo!</label>
+                    <input type="text" id="number" value="DHMONT S.A.C CONTRATISTAS GENERALES" pInputText />
+                </div>
+            </div>
+            <div class="p-col-12 p-md-6">
+                <div class="p-field">
+                    <label>Razon comercial(OPCIONAL)</label>
+                    <input type="text" id="ruc" pInputText />
+                </div>
+            </div>
+            <div class="p-col-12 p-md-6">
+                <div class="p-field">
+                    <label for="confirm-password">Pagina Web(OPCIONAL)</label>
+                    <input type="text" id="number" pInputText />
+                </div>
+            </div>
+            <div class="p-col-12">
+                <div class="p-field">
+                    <label>Email de esta empresa solo para enviar copias de los CPE</label>
+                    <input type="text" id="ruc" value="vitariomeza86@gmail.com" pInputText />
+                </div>
+            </div>
+            <div class="p-col-12">
+                <div class="p-field">
+                    <div class="p-col-3 p-p-0">
+                        <button class="p-button-lg" pButton type="button" id="accept-btn" label="ACEPTAR"></button>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="p-col-8">
-        <div class="p-field">
-          <label for="confirm-password">Razon social o nombre completo!</label>
-          <div class="p-col">
-            <input type="text" id="number" [style]="{'width': '100%'}" value="DHMONT S.A.C CONTRATISTAS GENERALES" pInputText/>
-          </div>        
+    </p-accordionTab>
+    <p-accordionTab header="CONTACTOS DE EMPRESA">
+        <div class="p-fluid p-formgrid p-grid">
+            <div class="p-col-12">
+
+                <p-messages severity="warn">
+                    <ng-template pTemplate>
+                        <div class="p-d-flex p-flex-column">
+                            <p class="p-align-center">Puede actualizar estos datos de ser necesario, los usaremos para
+                                comunicarnos contigo y es muy importante que estén actualizados. Puedes agregar todos
+                                los contactos que necesites.</p>
+                            <span> <a class="p-message-summary p-mb-2">ADMINISTRACIÓN:</a> <a>Enviaremos notificaciones
+                                    sobre el servicio y todo lo que enviamos a los contactos de FINANZAS y
+                                    TECNOLOGÍA.</a></span>
+                            <span> <a class="p-message-summary p-mb-2">FINANZAS:</a> <a>Enviaremos las Facturas u
+                                    Órdenes de Pago a este contacto.</a></span>
+                            <span> <a class="p-message-summary p-mb-2">TECNOLOGÍA:</a> <a>Enviaremos las Facturas u
+                                    Órdenes de Pago a este contacto.</a></span>
+                        </div>
+                    </ng-template>
+                </p-messages>
+
+            </div>
+            <div class="p-col-12 p-md-4 p-xl-2">
+                <div class="p-field">
+                    <label>Tipo de contacto</label>
+                    <input type="text" value="20108664640" pInputText />
+                </div>
+            </div>
+            <div class="p-col-12 p-md-8 p-xl-4">
+                <div class="p-field">
+                    <label>Nombre Completo</label>
+                    <input type="text" id="number" value="DHMONT S.A.C CONTRATISTAS GENERALES" pInputText />
+                </div>
+            </div>
+            <div class="p-col-12 p-md-4 p-xl-3">
+                <div class="p-field">
+                    <label>Email</label>
+                    <input type="text" id="ruc" pInputText />
+                </div>
+            </div>
+            <div class="p-col-12 p-md-4 p-xl-2">
+                <div class="p-field">
+                    <label for="confirm-password">Teléfono</label>
+                    <input type="text" id="number" pInputText />
+                </div>
+            </div>
+            <div class="p-field p-col-12 p-md-4 p-xl-1 p-d-flex p-ai-end p-jc-end">
+                <button class="p-button-danger" pButton type="button" id="accept-btn" icon="pi pi-trash"></button>
+            </div>
+            <div class="p-col-12">
+                <div class="p-field">
+                    <label></label>
+                    <div class="p-col-3 p-d-flex p-flex-column p-p-0">
+                        <button class="p-button-secondary p-mb-3" pButton type="button" id="accept-btn"
+                            label="Agregar Contacto"></button>
+                        <button class="p-button-lg" pButton type="button" id="accept-btn" label="Aceptar"></button>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="p-grid">
-      <div class="p-col-6">
-        <div class="p-field">
-          <label for="password">Razon comercial(OPCIONAL)</label>
-          <div class="p-col">
-            <input type="text" id="ruc" [style]="{'width': '100%'}" pInputText/>
-          </div>        
+    </p-accordionTab>
+    <p-accordionTab header="LOGOTIPO">
+        <div>
+            <p class="text-aling-center">Este logotipo es para los archivos PDF y para tu página de consultas.</p>
+            <div>
+                <p>Logotipo en formato .JPG para Facturas (320px por 80px) menos de 20 KB </p>
+                <p-fileUpload chooseLabel="Seleccionar Archivo" name="myfile[]" url="./upload.php"></p-fileUpload>
+            </div>
         </div>
-      </div>
-      <div class="p-col-6">
-        <div class="p-field">
-          <label for="confirm-password">Pagina Web(OPCIONAL)</label>
-          <div class="p-col">
-            <input type="text" id="number" [style]="{'width': '100%'}" pInputText/>
-          </div>        
+    </p-accordionTab>
+    <p-accordionTab header="PERSONALIZAR ARCHIVOS PDF DE FACTURAS, BOLETAS, NOTAS, ETC">
+        <div class="p-fluid p-formgrid p-grid">
+            <div class="p-col-12 p-md-6">
+                <div class="p-field">
+                    <label>FORMATO DE PDF EN FACTURAS Y NOTAS ASOCIADAS</label>
+                    <p-dropdown [options]="fomatFacturas" [(ngModel)]="selectFormatFactura" optionLabel="name">
+                    </p-dropdown>
+                </div>
+            </div>
+            <div class="p-col-12 p-md-6">
+                <div class="p-field">
+                    <label for="confirm-password">FORMATO DE PDF EN BOLETAS Y NOTAS ASOCIADAS</label>
+                    <p-dropdown [options]="fomatFacturas" [(ngModel)]="selectFormatFactura" optionLabel="name">
+                    </p-dropdown>
+                </div>
+            </div>
+            <div class="p-col-12 p-md-6">
+                <div class="p-field">
+                    <label>FORMATO DE PDF EN RETENCIONES</label>
+                    <p-dropdown [options]="fomatFacturas" [(ngModel)]="selectFormatFactura" optionLabel="name">
+                    </p-dropdown>
+                </div>
+            </div>
+            <div class="p-col-12 p-md-6">
+                <div class="p-field">
+                    <label for="confirm-password">FORMATO DE PDF EN PERCEPCIONES</label>
+                    <p-dropdown [options]="fomatFacturas" [(ngModel)]="selectFormatFactura" optionLabel="name">
+                    </p-dropdown>
+                </div>
+            </div>
+            <div class="p-col-12">
+                <div class="p-field">
+                    <h2>Color base en los archivos PDF que se generarán</h2>
+                    <label>Color BASE para PDF</label>
+                    <input type="text" id="ruc" pInputText />
+                </div>
+            </div>
+            <div class="p-col-12">
+                <div class="p-field">
+                    <h2>Datos de cabecera de los archivos PDF</h2>
+                    <label>Datos de cabecera. (Ejemplo: Teléfono, email, página web, Etc.). Maximo 150
+                        caracteres</label>
+                    <input type="text" id="ruc" pInputText />
+                </div>
+            </div>
+            <div class="p-col-12">
+                <div class="p-field">
+                    <div class="p-col-3 p-p-0">
+                        <button class="p-button-lg" pButton type="button" id="accept-btn" label="ACEPTAR"></button>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="p-grid">
-      <div class="p-col-12">
-        <div class="p-field">
-          <label for="password">Email de esta empresa solo para enviar copias de los CPE</label>
-          <div class="p-col">
-            <input type="text" id="ruc" [style]="{'width': '100%'}" value="vitariomeza86@gmail.com" pInputText/>
-          </div>        
+    </p-accordionTab>
+    <p-accordionTab header="CONFIGURACION ADICIONAL">
+        <div class="p-fluid p-formgrid p-grid">
+            <div class="p-field p-col-12">
+                <h2>Considerar PRECIO DE VENTA en los ITEMS o LINEAS de los comprobantes</h2>
+                <label>Precio de Venta (incluido IGV) en ITEMS?</label>
+                <div class="p-d-flex p-ai-center">
+                    <span class="p-mr-3"><strong>SI</strong></span>
+                    <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch><span class="p-ml-3"><strong>NO</strong></span>
+                </div>
+            </div>
+            <div class="p-field p-col-12">
+                <h2>Deshabilitar Continuar con el pago</h2>
+                <label>Deshabilitar Continuar con el pago? (Punto de Venta y Compras)</label>
+                <div class="p-d-flex p-ai-center">
+                    <span class="p-mr-3"><strong>SI</strong></span>
+                    <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch><span class="p-ml-3"><strong>NO</strong></span>
+                </div>
+            </div>
+            <div class="p-col-12 p-md-12">
+                <div class="p-field">
+                    <h2>Tipo de cálculo desde TOTAL en lineas</h2>
+                    <label>Tipo de cálculo desde TOTAL en lineas</label>
+                    <p-dropdown [options]="fomatFacturas" [(ngModel)]="selectFormatFactura" optionLabel="name">
+                    </p-dropdown>
+                </div>
+            </div>
+
+            <div class="p-field p-col-12">
+                <h2 class="p-mb-1">Recargo al consumo automático</h2>
+                <div class="p-grid">
+                    <div class="p-field p-col-6">
+                        <label>Recargo al consumo automático</label>
+                        <div class="p-d-flex p-ai-center">
+                            <span class="p-mr-3"><strong>SI</strong></span>
+                            <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch><span
+                                class="p-ml-3"><strong>NO</strong></span>
+                        </div>
+                    </div>
+                    <div class="p-field p-col-6">
+                        <label>Porcentaje</label>
+                        <div class="p-d-flex p-ai-center">
+                            <span class="p-mr-3"><strong>SI</strong></span>
+                            <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch><span
+                                class="p-ml-3"><strong>NO</strong></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-field p-col-12">
+                <h2>Permitir Notas de Crédito o Débito a facturas foráneas</h2>
+                <label>Permitir Notas de Crédito o Débito a facturas foráneas (Desde otros sistemas)?</label>
+                <div class="p-d-flex p-ai-center">
+                    <span class="p-mr-3"><strong>SI</strong></span>
+                    <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch><span class="p-ml-3"><strong>NO</strong></span>
+                </div>
+            </div>
+            <div class="p-col-12">
+                <div class="p-field">
+                    <div class="p-col-3 p-p-0">
+                        <button class="p-button-lg" pButton type="button" id="accept-btn" label="ACEPTAR"></button>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>      
-    </div>
-    <div class="p-grid">
-      <button pButton type="button" id="accept-btn" label="ACEPTAR"></button>
-    </div>
-  </p-accordionTab>
-  <p-accordionTab header="CONTACTOS DE EMPRESA">
-      Content 2
-  </p-accordionTab>
-  <p-accordionTab header="LOGOTIPO">
-      Content 3    
-  </p-accordionTab>
-  <p-accordionTab header="PERSONALIZAR ARCHIVOS PDF DE FACTURAS, BOLETAS, NOTAS, ETC">
-    Content 3    
-  </p-accordionTab>
-  <p-accordionTab header="CONFIGURACION ADICIONAL">
-    Content 3    
-  </p-accordionTab>
-  <p-accordionTab header="RECUPERAR CDR AUTOMATICAMENTE">
-    Content 3    
-  </p-accordionTab>
+    </p-accordionTab>
+    <p-accordionTab header="RECUPERAR CDR AUTOMATICAMENTE">
+        <div class="p-fluid p-formgrid p-grid">
+            <div class="p-field p-col-12">
+                <label>Recuperar CDR automaticamente?</label>
+                <div class="p-d-flex p-ai-center">
+                    <span class="p-mr-3"><strong>SI</strong></span>
+                    <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch><span class="p-ml-3"><strong>NO</strong></span>
+                </div>
+            </div>
+            <div class="p-col-12">
+                <div class="p-field">
+                    <div class="p-col-3 p-p-0">
+                        <button class="p-button-lg" pButton type="button" id="accept-btn" label="ACEPTAR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </p-accordionTab>
 </p-accordion>
