@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 
@@ -23,6 +23,8 @@ export class UsersEditComponent implements OnInit, OnDestroy {
   form: FormGroup;
   type: string;
   users: User;
+
+  saveUser$: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -48,14 +50,7 @@ export class UsersEditComponent implements OnInit, OnDestroy {
     });
 
   }
-
-  ngOnDestroy(): void {
-    this.unsbscribeAll.next();
-    this.unsbscribeAll.complete();
-  }
-
-
-
+  
   createForm() {
     this.form = this.fb.group({
       ContribuyenteId: [1, []],
@@ -70,17 +65,19 @@ export class UsersEditComponent implements OnInit, OnDestroy {
   }
 
   save() {
-
-    this.config.data = this.form.getRawValue();
+    this.users = this.users || {} as User;
+    Object.assign(this.users, this.form.getRawValue());
     if (this.form.valid) {
-      this._userService.process(this.config.data, this.type).then(res => {
-        this.showViaService('Usuario Guardado con Éxito', 'success');
-        this.ref.close();
-        this.cargarData();
-      }).catch(err => {
-        console.log(err);
-      });
-    }else {
+      this._userService.process(this.users, this.type)
+        .subscribe(res => {
+          console.log("creando usuario");
+          this.showViaService('Usuario Guardado con Éxito', 'success');
+          this._userService.saveUser$.emit(res);
+          this.ref.close();
+        }, err => {
+          this.showViaService(err.error.message, 'error')
+        })
+    } else {
       this.form.markAllAsTouched()
     };
 
@@ -103,13 +100,12 @@ export class UsersEditComponent implements OnInit, OnDestroy {
 
   showViaService(message: string, color: string) {
     this.messageService.add({
-      severity:color, summary:'', detail:message
-    }); 
+      severity: color, summary: '', detail: message
+    });
   }
 
-  cargarData() {
-    this._userService.getUserAll().subscribe(res => {
-      this.users = res;
-    });
+  ngOnDestroy(): void {
+    this.unsbscribeAll.next();
+    this.unsbscribeAll.complete();
   }
 }

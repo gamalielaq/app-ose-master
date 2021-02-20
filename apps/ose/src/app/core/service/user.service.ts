@@ -1,17 +1,22 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { User } from './../models/user-table';
 import { ApiTable } from './../models/api-table';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'apps/ose/src/environments/environment';
 import { Observable } from 'rxjs';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+
   users: User;
+  saveUser$ = new EventEmitter<User>();
+  url: string = '/api/Accounts/';
+
   constructor(
-    private _http: HttpClient
+    private _http: HttpClient,
+    private _apiService: ApiService
   ) { }
 
   apiTables: ApiTable[] = [
@@ -24,24 +29,24 @@ export class UserService {
   ];
 
   getUserAll(): Observable<User> {
-    return this._http.get<User>(`${environment.api}/api/Accounts/`).pipe(res => res);
+    return this._apiService.get<User>('/api/Accounts/');
   }
 
-  process(user: User, type) {
-    switch (type) {
-      case 'add':
-        return this._http.post(`${environment.api}/api/Accounts/`, user).toPromise();
-        break;
-      case 'edit':
-        return this._http.put(`${environment.api}/api/Accounts/`, user).toPromise() 
-        break;
-      default:
-        break;
+  create(user: User): Observable<User> {
+    return this._apiService.post<any>(this.url, user);
+  }
+
+  update(user: User): Observable<User> {
+    return this._apiService.put<any>(this.url, user);
+  }
+
+  delete(user: User): Observable<User> {
+    return this._apiService.delete(`${this.url}${user.usuariO_ID}`);
+  }
+
+  process(user: User, type): Observable<User> {
+    if(type === 'add') {
+      return this._apiService.post<any>(this.url, user);
     }
   }
-  
-  deleteUser(user: User) {
-    return this._http.delete(`${environment.api}/api/Accounts/${user.usuariO_ID}`).toPromise();
-  }
-
 }

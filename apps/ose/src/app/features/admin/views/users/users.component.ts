@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'apps/ose/src/app/core/models/user-table';
 import { DialogService } from 'primeng/dynamicdialog';
-
-// import { UserTable } from './../../../../core/models/user-table';
 import { UserService } from './../../../../core/service/user.service';
 import { UsersEditComponent } from '../users-edit/users-edit.component';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-users',
@@ -17,6 +16,8 @@ export class UsersComponent implements OnInit {
   msgs = [];
   users: User;
 
+  saveUser$: Subscription
+
   constructor(
     public _userService: UserService,
     private dialogService: DialogService,
@@ -25,16 +26,20 @@ export class UsersComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
+
     this.cargarData();
 
     this.msgs.push({
       severity: 'warn', summary: 'IMPORTANTE',
       detail: 'Los administradores recibiran las ordenes de pago y facturas enviadas por NUBEFACT'
     });
+
+    this.saveUser$ = this._userService.saveUser$.subscribe(res => {
+      if (res) this.cargarData();
+    });
   }
 
-  newUser(user: User | null, type): void {
+  addUser(user: User | null, type): void {
     const ref = this.dialogService.open(UsersEditComponent, {
       showHeader: true,
       header: 'Nuevo Usuario',
@@ -53,10 +58,10 @@ export class UsersComponent implements OnInit {
       acceptLabel: 'Si',
       rejectLabel: 'No',
       accept: () => {
-        this._userService.deleteUser(user).then( (res : string)  => {
-          this.showViaService(res['message'] , 'success');
+        this._userService.delete(user).subscribe(res => {
           this.cargarData();
-        });
+          this.showViaService(res['message'], 'success');
+        })
       },
       reject: () => {
       }
@@ -79,8 +84,8 @@ export class UsersComponent implements OnInit {
 
   showViaService(message: string, color: string) {
     this.messageService.add({
-      severity:color, summary:'', detail:message
-    }); 
+      severity: color, summary: '', detail: message
+    });
   }
 
   cargarData() {
@@ -88,5 +93,4 @@ export class UsersComponent implements OnInit {
       this.users = res;
     });
   }
-
 }
