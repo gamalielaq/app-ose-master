@@ -108,4 +108,11 @@ export class ComprobanteComponent implements OnInit {
     },
     ];
   }
+
+  print() {
+    var element: any = document.querySelector('#pdf-frame');
+    window.setTimeout(function () {
+      element.contentWindow.print();
+    }, 1000);
+  }
 }

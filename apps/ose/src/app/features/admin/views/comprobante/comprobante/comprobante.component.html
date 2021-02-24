@@ -170,7 +170,7 @@
                     <td>{{doc.enviado}}</td>
                     <td>{{doc.leido}}</td>
                     <td>
-                        <span class="p-badge p-badge-info">{{doc.imprimir}}</span>
+                        <span (click)="print()" class="p-badge p-badge-info">{{doc.imprimir}}</span>
                     </td>
                     <td>
                         <span class="p-badge p-badge-danger">{{doc.pdf}}</span>
@@ -185,3 +185,4 @@
         </p-table>
     </div>
 </div>
+<iframe id="pdf-frame" src="assets/doc/comprobante.pdf" hidden></iframe>
